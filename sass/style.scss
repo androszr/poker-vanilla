@@ -6,9 +6,7 @@
 
 /* Colors */
 
-$color-one: #9dab86;
-$color-two: #e6a157;
-$color-three: #eb8242;
+$color-one: #477148;
 $color-light:#FFFFFF;
 $color-dark: #000000;
 $color-gray: #777777;
@@ -28,7 +26,7 @@ body {
   font-family: $font-two;
   font-size: 16px;
   color: $color-light;
-  height: 100vh;
+  min-height: 100vh;
   &::before {
     position: absolute;
     content: '';
@@ -39,11 +37,11 @@ body {
     background:
     radial-gradient($color-dark 15%, transparent 16%) 0 0,
     radial-gradient($color-dark 15%, transparent 16%) 8px 8px,
-    radial-gradient($color-gray 15%, transparent 20%) 0 1px,
-    radial-gradient($color-gray 15%, transparent 20%) 8px 9px;
+    radial-gradient($color-one 15%, transparent 20%) 0 1px,
+    radial-gradient($color-one 15%, transparent 20%) 8px 9px;
     background-color:$color-dark;
     background-size:16px 16px;
-    filter: brightness(30%);
+    filter: brightness(40%);
     z-index: -1;
   }  
 }
@@ -98,7 +96,6 @@ body {
       }
     }
     .content {
-      min-height: 50vh;
       margin: 0 30vw;
       background-color: $color-light;
       color: $color-dark;
@@ -111,22 +108,33 @@ body {
 /* Form */
 
 form {
-  margin: 20px 0;
+  margin: 20px 0 0 0;
   label {
     small {
       display: block;
     }
     input {
       width: 350px;
-      line-height: 1.5rem;
+      line-height: 2rem;
       margin-bottom: 10px;
       border: 1px solid $color-gray;
       border-radius: 5px;
       text-align: center;
+      background-color: $color-one;
+      color: $color-light;
+      &:focus {
+        outline: none;
+      }
     }
   }
   button {
     margin-bottom: 20px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: $color-light;
+    background-color: $color-one;
+    border: none;
   }
 }
 
@@ -145,6 +153,7 @@ form {
   .player {
     border: 1px solid $color-gray;
     border-radius: 10px 10px 5px 5px;
+    cursor: pointer;
     &:hover .player-photo img {
       filter: brightness(100%);
     }
@@ -161,7 +170,7 @@ form {
       }
     }
     .player-content {
-      font-size: 12px;
+      font-size: 16px;
       padding: 5px 5px;
       .name {
         padding-bottom: 5px;
@@ -179,9 +188,9 @@ form {
 /* Footer */
 
 footer {
-  position: fixed;
-  bottom: 1%;
+  position: absolute;
   width: 100%;
+  bottom: 1%;
   color: $color-light;
   display: grid;
   grid-template-columns: 50% 50%;

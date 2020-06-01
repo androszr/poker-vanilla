@@ -1,0 +1,14 @@
+{
+  "players": [
+    {
+      "id": "player-one",
+      "icon": "fad fa-heart",
+      "name": "Jessy"
+    },
+    {
+      "id": "player-two",
+      "icon": "fad fa-spade",
+      "name": "Kevin"
+    }
+  ]
+  }
