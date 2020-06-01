@@ -108,8 +108,34 @@ body {
   }
 }
 
+/* Form */
+
+form {
+  margin: 20px 0;
+  label {
+    small {
+      display: block;
+    }
+    input {
+      width: 350px;
+      line-height: 1.5rem;
+      margin-bottom: 10px;
+      border: 1px solid $color-gray;
+      border-radius: 5px;
+      text-align: center;
+    }
+  }
+  button {
+    margin-bottom: 20px;
+  }
+}
+
 /* Player Choice */
 
+.player-choice-headline {
+  font-size: smaller;
+  margin-bottom: 10px;
+}
 .player-choice {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -118,7 +144,7 @@ body {
   padding: 10px 10px;
   .player {
     border: 1px solid $color-gray;
-    border-radius: 10px;
+    border-radius: 10px 10px 5px 5px;
     &:hover .player-photo img {
       filter: brightness(100%);
     }

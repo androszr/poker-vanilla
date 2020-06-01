@@ -90,7 +90,34 @@ body::before {
   border-radius: 20px;
 }
 
+/* Form */
+form {
+  margin: 20px 0;
+}
+
+form label small {
+  display: block;
+}
+
+form label input {
+  width: 350px;
+  line-height: 1.5rem;
+  margin-bottom: 10px;
+  border: 1px solid #777777;
+  border-radius: 5px;
+  text-align: center;
+}
+
+form button {
+  margin-bottom: 20px;
+}
+
 /* Player Choice */
+.player-choice-headline {
+  font-size: smaller;
+  margin-bottom: 10px;
+}
+
 .player-choice {
   display: -ms-grid;
   display: grid;
@@ -104,7 +131,7 @@ body::before {
 
 .player-choice .player {
   border: 1px solid #777777;
-  border-radius: 10px;
+  border-radius: 10px 10px 5px 5px;
 }
 
 .player-choice .player:hover .player-photo img {
