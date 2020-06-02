@@ -29,7 +29,7 @@
         <div class="content">
           <h1>Begin your poker adventure</h1>
           <p>start your game now.</p>
-          <form>
+          <form class="start-game-form">
             <div class="input-group">
               <label>
                 <small>Your name</small>
@@ -45,14 +45,7 @@
             <div class="input-group">
               <p class="player-choice-headline">Choose player you wish to play the game as:</p>
               <div class="player-choice">
-                <div class="player player-1">
-                  <div class="player-photo">
-                    <img src="/images/player-1.jpg">
-                  </div>
-                  <div class="player-content">
-                    <p class="name"><i class="fad fa-heart"></i> Jessy</p>
-                  </div>
-                </div>
+                
               </div>
             </div>
             
@@ -77,6 +70,17 @@
           <i class="fab fa-snapchat-ghost"></i>
       </div>
     </footer>
+    <script id="template-player-choice" type="text/x-handlebars-template">
+      <div class="player {{ id }}">
+        <div class="player-photo">
+          <img src="images/{{ id }}.jpg">
+        </div>
+        <div class="player-content">
+          <p class="name"><i class="fad fa-{{ icon }}"></i> {{ name }}</p>
+        </div>
+      </div>
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
     <script src="js/script.js"></script>
     </body>
 </html>
