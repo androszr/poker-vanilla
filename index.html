@@ -16,8 +16,8 @@
         <nav>
             <ul>
                 <li>Leaderboard</li>
-                <li>Balance</li>
                 <li>Player</li>
+                <li class="player-details"><img src="/images/player-1.jpg" class="player-avatar"></li>
             </ul>
         </nav>
     </section>
@@ -27,19 +27,14 @@
           <img src="images/header.png"/>
         </div>
         <div class="content">
-          <h1>Begin your poker adventure</h1>
+          <h1>Begin your video poker adventure</h1>
           <p>start your game now.</p>
           <form class="start-game-form">
             <div class="input-group">
               <label>
                 <small>Your name</small>
                 <input type="text" name="player-name" class="player-name-input">
-              </label>
-            </div>
-            <div class="input-group">
-              <label>
-                <small>Your email</small>
-                <input type="text" name="player-email" class="player-email-input">
+                <small class="input-alert name-alert">Please use only letters or numbers. Minimum length 2.</small>
               </label>
             </div>
             <div class="input-group">
@@ -48,7 +43,7 @@
                 <script id="template-player-choice" type="text/x-handlebars-template">
                   <div class="player {{ id }}">
                     <div class="player-photo">
-                      <img src="images/{{ id }}.jpg">
+                      <img src="images/{{ image }}">
                     </div>
                     <div class="player-content">
                       <p class="name"><i class="fad fa-{{ icon }}"></i> {{ name }}</p>
@@ -56,9 +51,15 @@
                   </div>
                 </script>
               </div>
+              <small class="input-alert player-alert">Please choose player</small>
             </div>
-            
-            
+            <div class="input-group">
+              <label>
+                <input type="checkbox" name="terms-condition" class="terms-condition" value="1">
+                <small class="consent">I agree with terms & conditions</small>
+                <small class="input-alert consent-alert">Please agree with terms & conditions</small>
+              </label>
+            </div>
             <button type="submit">Start game</button>
           </form>
         </div>
@@ -66,7 +67,24 @@
       
     </section>
     <section class="game">
-      
+      <div class="wrapper">
+
+      </div>
+      <div class="balance-card">
+        <div class="balance-grid">
+          <div class="balance-current">
+            <p> $500</p>
+          </div>
+          <div class="balance-history">
+            <p>Last changes:</p>
+            <ul class="balance-history-list">
+              <li>-$100 (bid)</li>
+              <li>+$200 (win)</li>
+              <li><a href="">(expand)</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </section>
     <footer>
       <div class="copyright">

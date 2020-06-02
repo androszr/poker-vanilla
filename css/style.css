@@ -6,7 +6,11 @@
 
 /* Colors */
 /* Fonts */
-/* Global */
+/* Alerts */
+.input-alert {
+  color: #cc3300;
+}
+
 /* Body */
 body {
   position: relative;
@@ -40,6 +44,8 @@ body::before {
       grid-template-columns: 30% 70%;
   -ms-grid-rows: auto;
       grid-template-rows: auto;
+  -ms-flex-align: center;
+      align-items: center;
 }
 
 .navigation .logo-text a {
@@ -61,15 +67,25 @@ body::before {
   display: inline-block;
   padding-left: 20px;
   cursor: pointer;
+  vertical-align: middle;
 }
 
 .navigation ul li:first-of-type {
   padding-left: 0px;
 }
 
+.navigation ul li .player-avatar {
+  border-radius: 50%;
+  height: 50px;
+}
+
 /* Start Game */
 .start {
   text-align: center;
+}
+
+.start .wrapper {
+  padding-bottom: 100px;
 }
 
 .start .wrapper .photo-header {
@@ -94,14 +110,22 @@ form {
   margin: 20px 0 0 0;
 }
 
-form label small {
+form .input-group {
+  margin-bottom: 10px;
+}
+
+form .input-group label small {
   display: block;
 }
 
-form label input {
+form .input-group label .consent {
+  display: inline-block;
+  cursor: pointer;
+}
+
+form .input-group label input {
   width: 350px;
   line-height: 2rem;
-  margin-bottom: 10px;
   border: 1px solid #777777;
   border-radius: 5px;
   text-align: center;
@@ -109,8 +133,20 @@ form label input {
   color: #FFFFFF;
 }
 
-form label input:focus {
+form .input-group label input:focus {
   outline: none;
+}
+
+form .input-group label .terms-condition {
+  width: 30px;
+}
+
+form .input-group .input-alert {
+  display: none;
+}
+
+form .input-group .input-alert-show {
+  display: block;
 }
 
 form button {
@@ -121,12 +157,13 @@ form button {
   color: #FFFFFF;
   background-color: #477148;
   border: none;
+  border-radius: 5px;
 }
 
 /* Player Choice */
 .player-choice-headline {
   font-size: smaller;
-  margin-bottom: 10px;
+  margin: 10px 0;
 }
 
 .player-choice {
@@ -138,6 +175,7 @@ form button {
       grid-template-rows: auto;
   grid-gap: 15px;
   padding: 10px 10px;
+  margin: 0px 100px;
 }
 
 .player-choice .player {
@@ -163,7 +201,7 @@ form button {
 }
 
 .player-choice .player .player-content {
-  font-size: 16px;
+  font-size: 12px;
   padding: 5px 5px;
 }
 
@@ -173,6 +211,63 @@ form button {
 
 .player-choice .player .player-content .description {
   font-size: 8px;
+}
+
+.player-choice .player-active {
+  background-color: #477148;
+  color: #FFFFFF;
+}
+
+.player-choice .player-active .player-photo img {
+  filter: brightness(100%);
+}
+
+/* Balance Card */
+.balance-card {
+  position: absolute;
+  top: 30%;
+  right: 0%;
+  background-color: #477148;
+  color: #FFFFFF;
+  width: 300px;
+  margin-right: -240px;
+  padding: 10px 10px;
+  border-radius: 10px 0 0 10px;
+  transition: margin-right 2s;
+  cursor: pointer;
+}
+
+.balance-card:hover {
+  margin-right: 0px;
+}
+
+.balance-card .balance-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 30% 70%;
+      grid-template-columns: 30% 70%;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  grid-gap: 20px;
+  -ms-flex-align: center;
+      align-items: center;
+}
+
+.balance-card .balance-grid .balance-history p {
+  margin-bottom: 5px;
+}
+
+.balance-card .balance-grid .balance-history .balance-history-list {
+  list-style: none;
+}
+
+.balance-card .balance-grid .balance-history .balance-history-list li {
+  font-size: 12px;
+}
+
+.balance-card .balance-grid .balance-history .balance-history-list li a {
+  text-decoration: none;
+  color: #FFFFFF;
 }
 
 /* Footer */

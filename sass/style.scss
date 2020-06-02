@@ -7,6 +7,7 @@
 /* Colors */
 
 $color-one: #477148;
+$color-warning: #cc3300;
 $color-light:#FFFFFF;
 $color-dark: #000000;
 $color-gray: #777777;
@@ -17,7 +18,11 @@ $color-gray-background: #F7F7F7;
 $font-one: 'Raleway', sans-serif;
 $font-two: 'Montserrat', sans-serif;
 
-/* Global */
+/* Alerts */
+
+.input-alert {
+  color: $color-warning;
+}
 
 /* Body */
 
@@ -54,6 +59,7 @@ body {
   display: grid;
   grid-template-columns: 30% 70%;
   grid-template-rows: auto;
+  align-items: center;
   .logo-text {
       a {
           color: $color-light;
@@ -73,9 +79,14 @@ body {
           display: inline-block;
           padding-left: 20px;
           cursor: pointer;
+          vertical-align: middle;
           
           &:first-of-type {
               padding-left: 0px;
+          }
+          .player-avatar {
+            border-radius: 50%;
+            height: 50px;
           }
       }
       
@@ -87,6 +98,7 @@ body {
 .start {
   text-align: center;
   .wrapper {
+    padding-bottom: 100px;
     .photo-header {
       margin-bottom: -50px;
       height: 200px;
@@ -109,22 +121,37 @@ body {
 
 form {
   margin: 20px 0 0 0;
-  label {
-    small {
-      display: block;
-    }
-    input {
-      width: 350px;
-      line-height: 2rem;
-      margin-bottom: 10px;
-      border: 1px solid $color-gray;
-      border-radius: 5px;
-      text-align: center;
-      background-color: $color-one;
-      color: $color-light;
-      &:focus {
-        outline: none;
+  .input-group {
+    margin-bottom: 10px;
+    label {
+      small {
+        display: block;
       }
+      .consent {
+        display: inline-block;
+        cursor: pointer;
+      }
+      input {
+        width: 350px;
+        line-height: 2rem;
+        border: 1px solid $color-gray;
+        border-radius: 5px;
+        text-align: center;
+        background-color: $color-one;
+        color: $color-light;
+        &:focus {
+          outline: none;
+        }
+      }
+      .terms-condition {
+        width: 30px;
+      }
+    }
+    .input-alert {
+      display: none;
+    }
+    .input-alert-show {
+      display: block;
     }
   }
   button {
@@ -135,6 +162,7 @@ form {
     color: $color-light;
     background-color: $color-one;
     border: none;
+    border-radius: 5px;
   }
 }
 
@@ -142,7 +170,7 @@ form {
 
 .player-choice-headline {
   font-size: smaller;
-  margin-bottom: 10px;
+  margin: 10px 0;
 }
 .player-choice {
   display: grid;
@@ -150,6 +178,7 @@ form {
   grid-template-rows: auto;
   grid-gap: 15px;
   padding: 10px 10px;
+  margin: 0px 100px;
   .player {
     border: 1px solid $color-gray;
     border-radius: 10px 10px 5px 5px;
@@ -170,7 +199,7 @@ form {
       }
     }
     .player-content {
-      font-size: 16px;
+      font-size: 12px;
       padding: 5px 5px;
       .name {
         padding-bottom: 5px;
@@ -180,10 +209,57 @@ form {
       }
     }
   }
-  
+  .player-active {
+    background-color: $color-one;
+    color: $color-light;
+    .player-photo {
+      img {
+        filter: brightness(100%);
+      }
+    }
+  }
 }
 
+/* Balance Card */
 
+.balance-card {
+  position: absolute;
+  top: 30%;
+  right: 0%;
+  background-color: $color-one;
+  color: $color-light;
+  width: 300px;
+  margin-right: -240px;
+  padding: 10px 10px;
+  border-radius: 10px 0 0 10px;
+  transition: margin-right 2s;
+  cursor: pointer;
+  &:hover {
+    margin-right: 0px;
+  }
+  .balance-grid {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: auto;
+    grid-gap: 20px;
+    align-items: center;
+    .balance-history {
+      p {
+        margin-bottom: 5px;
+      }
+      .balance-history-list {
+        list-style: none;
+        li {
+          font-size: 12px;
+          a {
+            text-decoration: none;
+            color: $color-light;
+          }
+        }
+      }
+    }
+  }
+}
 
 /* Footer */
 

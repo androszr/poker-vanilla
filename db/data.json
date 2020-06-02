@@ -3,12 +3,26 @@
     {
       "id": "player-one",
       "icon": "fad fa-heart",
-      "name": "Jessy"
+      "name": "Jessy",
+      "image": "player-1.jpg"
     },
     {
       "id": "player-two",
       "icon": "fad fa-spade",
-      "name": "Kevin"
+      "name": "Kevin",
+      "image": "player-2.jpg"
+    },
+    {
+      "id": "player-three",
+      "icon": "fad fa-diamond",
+      "name": "Bob",
+      "image": "player-3.jpg"
+    },
+    {
+      "id": "player-four",
+      "icon": "fad fa-acorn",
+      "name": "Michael",
+      "image": "player-4.jpg"
     }
   ]
   }
