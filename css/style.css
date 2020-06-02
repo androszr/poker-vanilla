@@ -11,6 +11,11 @@
   color: #cc3300;
 }
 
+/* Section Global */
+.section-hide {
+  display: none;
+}
+
 /* Body */
 body {
   position: relative;
@@ -116,6 +121,7 @@ form .input-group {
 
 form .input-group label small {
   display: block;
+  margin-bottom: 10px;
 }
 
 form .input-group label .consent {
@@ -161,12 +167,11 @@ form button {
 }
 
 /* Player Choice */
-.player-choice-headline {
+.avatar-choice-headline {
   font-size: smaller;
-  margin: 10px 0;
 }
 
-.player-choice {
+.avatar-choice {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[4];
@@ -178,17 +183,17 @@ form button {
   margin: 0px 100px;
 }
 
-.player-choice .player {
+.avatar-choice .avatar {
   border: 1px solid #777777;
   border-radius: 10px 10px 5px 5px;
   cursor: pointer;
 }
 
-.player-choice .player:hover .player-photo img {
+.avatar-choice .avatar:hover .avatar-photo img {
   filter: brightness(100%);
 }
 
-.player-choice .player .player-photo img {
+.avatar-choice .avatar .avatar-photo img {
   -ms-flex-positive: 1;
       flex-grow: 1;
   width: 100%;
@@ -200,31 +205,31 @@ form button {
   transition: filter 1s;
 }
 
-.player-choice .player .player-content {
+.avatar-choice .avatar .avatar-content {
   font-size: 12px;
   padding: 5px 5px;
 }
 
-.player-choice .player .player-content .name {
+.avatar-choice .avatar .avatar-content .name {
   padding-bottom: 5px;
 }
 
-.player-choice .player .player-content .description {
+.avatar-choice .avatar .avatar-content .description {
   font-size: 8px;
 }
 
-.player-choice .player-active {
+.avatar-choice .avatar-active {
   background-color: #477148;
   color: #FFFFFF;
 }
 
-.player-choice .player-active .player-photo img {
+.avatar-choice .avatar-active .avatar-photo img {
   filter: brightness(100%);
 }
 
 /* Balance Card */
 .balance-card {
-  position: absolute;
+  position: fixed;
   top: 30%;
   right: 0%;
   background-color: #477148;

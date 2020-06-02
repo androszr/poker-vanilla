@@ -3,13 +3,14 @@
 
   const select = {
     startScreen: {
+      startSection: '.start',
       inputName: '.player-name-input',
       consentField: '.terms-condition',
       submitButton: '.start-game-form [type="submit"]',
-      playersChoice: '.player-choice',
-      playerAvatar: '.player-details',
-      allPlayers: '.player',
-      activePlayer: '.player-active',
+      avatarChoice: '.avatar-choice',
+      avatarAvatar: '.avatar-details',
+      allAvatars: '.avatar',
+      activeAvatar: '.avatar-active',
       currentBalance: '.balance-current p',
     },
     
@@ -17,8 +18,9 @@
 
   const classNames = {
     startScreen: {
-      activePlayer: 'player-active',
+      activeAvatar: 'avatar-active',
       alertShow: 'input-alert-show',
+      sectionHide: 'section-hide',
     },
   }
 
@@ -28,8 +30,8 @@
         regex: /^[a-zA-Z0-9]{2,}$/,
         errorAlertField: '.name-alert',
       },
-      players: {
-        errorAlertField: '.player-alert',
+      avatars: {
+        errorAlertField: '.avatar-alert',
       },
       consent: {
         errorAlertField: '.consent-alert',
@@ -38,14 +40,14 @@
   }
 
   const templates = {
-    playerChoice: Handlebars.compile(document.querySelector('#template-player-choice').innerHTML),
+    avatarChoice: Handlebars.compile(document.querySelector('#template-avatar-choice').innerHTML),
   }
 
   class GameInit {
     constructor(gameData) {
       this.data = gameData;
-      this.currentActivePlayer = '';
-      this.renderPlayers();
+      this.currentActiveAvatar = '';
+      this.renderAvatars();
       this.getElements();
       this.initActions();
     }
@@ -54,40 +56,48 @@
       this.elements.name = document.querySelector(select.startScreen.inputName);
       this.elements.consent = document.querySelector(select.startScreen.consentField);
       this.elements.formSubmit = document.querySelector(select.startScreen.submitButton);
-      this.elements.players = document.querySelector(select.startScreen.playersChoice);
-      this.elements.allPlayers = document.querySelectorAll(select.startScreen.allPlayers);
+      this.elements.avatar = document.querySelector(select.startScreen.avatarChoice);
+      this.elements.allAvatars = document.querySelectorAll(select.startScreen.allAvatars);
 
       this.elements.nameError = document.querySelector(settings.validate.name.errorAlertField);
-      this.elements.playerError = document.querySelector(settings.validate.players.errorAlertField);
+      this.elements.avatarError = document.querySelector(settings.validate.avatars.errorAlertField);
       this.elements.consentError = document.querySelector(settings.validate.consent.errorAlertField);
     };
-    renderPlayers() {
+    renderAvatars() {
       console.log('Game data: ', this.data);
-      for (let player in this.data.players) {
-        const generatedHTML = templates.playerChoice(this.data.players[player]);
-        const targetElement = document.querySelector(select.startScreen.playersChoice);
+      for (let avatar in this.data.avatars) {
+        const generatedHTML = templates.avatarChoice(this.data.avatars[avatar]);
+        const targetElement = document.querySelector(select.startScreen.avatarChoice);
         targetElement.insertAdjacentHTML('beforeend', generatedHTML);
-        const playerBox = document.querySelector('.'+this.data.players[player].id)
 
-        playerBox.addEventListener('click', () => {
+        const avatarBox = document.querySelector('.'+this.data.avatars[avatar].id)
+        avatarBox.addEventListener('click', () => {
           event.preventDefault();
-          this.playerChoice(this.data.players[player].id);
+          this.avatarChoice(this.data.avatars[avatar].id);
         });
       }
     };
-    playerChoice(playerId) {
-      this.currentActivePlayer = document.querySelector(select.startScreen.activePlayer);
-      if (this.currentActivePlayer) {
-        this.currentActivePlayer.classList.remove(classNames.startScreen.activePlayer, false)
+    avatarChoice(avatarId) {
+      this.currentActiveAvatar = document.querySelector(select.startScreen.activeAvatar);
+      if (this.currentActiveAvatar) {
+        this.currentActiveAvatar.classList.remove(classNames.startScreen.activeAvatar, false)
       }
-      this.currentActivePlayer = this.elements.players.querySelector('.'+playerId);
-      this.currentActivePlayer.classList.add(classNames.startScreen.activePlayer);
+      this.currentActiveAvatarId = avatarId;
+      this.currentActiveAvatar = this.elements.avatar.querySelector('.'+this.currentActiveAvatarId);   
+      this.currentActiveAvatar.classList.add(classNames.startScreen.activeAvatar);
+      this.validateAvatar();
     };
     initActions() {
       this.elements.formSubmit.addEventListener('click', () => {
         event.preventDefault();
         this.initGame();
       });
+      this.elements.consent.addEventListener('change', () => {
+        this.validateConsent();
+      });
+      this.elements.name.addEventListener('change', () => {
+        this.validateName();
+      })
     };
     validateName() {
       const nameRegex = new RegExp(settings.validate.name.regex);
@@ -99,22 +109,29 @@
         return false;
       }
     };
-    validatePlayer() {
-      if (this.currentActivePlayer) {
-        this.elements.playerError.classList.remove(classNames.startScreen.alertShow, false);
+    validateAvatar() {
+      if (this.currentActiveAvatar) {
+        this.elements.avatarError.classList.remove(classNames.startScreen.alertShow, false);
         return true;
       } else {
-        this.elements.playerError.classList.add(classNames.startScreen.alertShow);
+        this.elements.avatarError.classList.add(classNames.startScreen.alertShow);
         return false;
       }
     };
     validateConsent() {
-
+      if (this.elements.consent.checked) {
+        this.elements.consentError.classList.remove(classNames.startScreen.alertShow, false);
+        return true;
+      } else {
+        this.elements.consentError.classList.add(classNames.startScreen.alertShow);
+        return false;
+      }
     };
     validate() {
       const validateName = this.validateName();
-      const validatePlayer = this.validatePlayer();
-      if (!validateName || !validatePlayer) {
+      const validateAvatar = this.validateAvatar();
+      const validateConsent = this.validateConsent();
+      if (!validateName || !validateAvatar || !validateConsent) {
         return false;
       } else {
         return true;
@@ -122,15 +139,31 @@
       
     };
     initGame() {
-      console.log('current elements: ', this.elements);
-      console.log('current active player: ', this.currentActive);
       if (!this.validate()) {
         return;
       }
-      console.log('validate passed');
+      this.gameSessionData = {};
+      this.gameSessionData.name = this.elements.name.value;
+      this.gameSessionData.avatar = this.currentActiveAvatarId;
+      console.log('validate passed', this.gameSessionData);
+      new GameSession(this.gameSessionData);
     };
   }
 
+  class GameSession {
+    constructor(gameSessionData) {
+      this.data = gameSessionData;
+      this.getElements();
+      this.initSession();
+    }
+    getElements() {
+      this.startSection = document.querySelector(select.startScreen.startSection);
+    }
+    initSession() {
+      console.log('starting game session: ', this.data);
+      this.startSection.classList.add(classNames.startScreen.sectionHide);
+    };
+  }
   const app = {
     initData: function(){
       this.data = {};

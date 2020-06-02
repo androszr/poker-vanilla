@@ -24,6 +24,12 @@ $font-two: 'Montserrat', sans-serif;
   color: $color-warning;
 }
 
+/* Section Global */
+
+.section-hide {
+  display: none;
+}
+
 /* Body */
 
 body {
@@ -126,6 +132,7 @@ form {
     label {
       small {
         display: block;
+        margin-bottom: 10px;
       }
       .consent {
         display: inline-block;
@@ -168,25 +175,24 @@ form {
 
 /* Player Choice */
 
-.player-choice-headline {
+.avatar-choice-headline {
   font-size: smaller;
-  margin: 10px 0;
 }
-.player-choice {
+.avatar-choice {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto;
   grid-gap: 15px;
   padding: 10px 10px;
   margin: 0px 100px;
-  .player {
+  .avatar {
     border: 1px solid $color-gray;
     border-radius: 10px 10px 5px 5px;
     cursor: pointer;
-    &:hover .player-photo img {
+    &:hover .avatar-photo img {
       filter: brightness(100%);
     }
-    .player-photo {
+    .avatar-photo {
       img {
         flex-grow: 1;
         width: 100%;
@@ -198,7 +204,7 @@ form {
         transition: filter 1s;
       }
     }
-    .player-content {
+    .avatar-content {
       font-size: 12px;
       padding: 5px 5px;
       .name {
@@ -209,10 +215,10 @@ form {
       }
     }
   }
-  .player-active {
+  .avatar-active {
     background-color: $color-one;
     color: $color-light;
-    .player-photo {
+    .avatar-photo {
       img {
         filter: brightness(100%);
       }
@@ -223,7 +229,7 @@ form {
 /* Balance Card */
 
 .balance-card {
-  position: absolute;
+  position: fixed;
   top: 30%;
   right: 0%;
   background-color: $color-one;
