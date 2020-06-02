@@ -45,7 +45,16 @@
             <div class="input-group">
               <p class="player-choice-headline">Choose player you wish to play the game as:</p>
               <div class="player-choice">
-                
+                <script id="template-player-choice" type="text/x-handlebars-template">
+                  <div class="player {{ id }}">
+                    <div class="player-photo">
+                      <img src="images/{{ id }}.jpg">
+                    </div>
+                    <div class="player-content">
+                      <p class="name"><i class="fad fa-{{ icon }}"></i> {{ name }}</p>
+                    </div>
+                  </div>
+                </script>
               </div>
             </div>
             
@@ -70,16 +79,6 @@
           <i class="fab fa-snapchat-ghost"></i>
       </div>
     </footer>
-    <script id="template-player-choice" type="text/x-handlebars-template">
-      <div class="player {{ id }}">
-        <div class="player-photo">
-          <img src="images/{{ id }}.jpg">
-        </div>
-        <div class="player-content">
-          <p class="name"><i class="fad fa-{{ icon }}"></i> {{ name }}</p>
-        </div>
-      </div>
-    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
     <script src="js/script.js"></script>
     </body>
