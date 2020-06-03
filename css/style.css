@@ -12,8 +12,12 @@
 }
 
 /* Section Global */
-.section-hide {
+section {
   display: none;
+}
+
+.section-active {
+  display: block;
 }
 
 /* Body */
@@ -85,24 +89,24 @@ body::before {
 }
 
 /* Start Game */
-.start {
+#start {
   text-align: center;
 }
 
-.start .wrapper {
+#start .wrapper {
   padding-bottom: 100px;
 }
 
-.start .wrapper .photo-header {
+#start .wrapper .photo-header {
   margin-bottom: -50px;
   height: 200px;
 }
 
-.start .wrapper .photo-header img {
+#start .wrapper .photo-header img {
   height: 100%;
 }
 
-.start .wrapper .content {
+#start .wrapper .content {
   margin: 0 30vw;
   background-color: #FFFFFF;
   color: #000000;

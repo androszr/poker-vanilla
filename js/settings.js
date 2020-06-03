@@ -1,6 +1,9 @@
 export const select = {
+  global: {
+    allSections: 'section',
+  },
   startScreen: {
-    startSection: '.start',
+    startSection: '#start',
     inputName: '.player-name-input',
     consentField: '.terms-condition',
     submitButton: '.start-game-form [type="submit"]',
@@ -10,14 +13,20 @@ export const select = {
     activeAvatar: '.avatar-active',
     currentBalance: '.balance-current p',
   },
+  gameScreen: {
+    gameSection: '#game',
+  }
   
 };
 
 export const classNames = {
+  global: {
+    sectionShow: 'section-active',
+  },
   startScreen: {
     activeAvatar: 'avatar-active',
     alertShow: 'input-alert-show',
-    sectionHide: 'section-hide',
+    
   },
 }
 
