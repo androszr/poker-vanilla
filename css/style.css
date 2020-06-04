@@ -88,6 +88,18 @@ body::before {
   height: 50px;
 }
 
+.navigation ul .player-details {
+  display: none;
+}
+
+.navigation ul .player-name {
+  display: none;
+}
+
+.navigation ul .player-show {
+  display: inline-block;
+}
+
 /* Start Game */
 #start {
   text-align: center;

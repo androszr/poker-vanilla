@@ -1,5 +1,6 @@
 
 import GameInit from './components/GameInit.js';
+import GameSession from './components/GameSession.js';
 import { classNames, select } from './settings.js';
 
 const app = {
@@ -31,6 +32,12 @@ const app = {
     console.log('*** Poker App starting ***', this);
     this.initData();
     this.initPages();
+    /* temporary */ 
+    this.gameSessionData = {};
+    this.gameSessionData.name = 'Rob';
+    this.gameSessionData.avatar = 'player-one';
+    console.log('validate passed', this.gameSessionData);
+    new GameSession(this.gameSessionData);
   }
 }
 app.init();

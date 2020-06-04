@@ -98,6 +98,15 @@ body {
             height: 50px;
           }
       }
+      .player-details {
+        display: none;
+      }
+      .player-name {
+        display: none;
+      }
+      .player-show {
+        display: inline-block;
+      }
       
   }
 }

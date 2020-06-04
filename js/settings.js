@@ -1,6 +1,8 @@
 export const select = {
   global: {
     allSections: 'section',
+    avatarImgWrapper: '.player-details img',
+    nameWrapper: '.player-name',
   },
   startScreen: {
     startSection: '#start',
@@ -22,6 +24,7 @@ export const select = {
 export const classNames = {
   global: {
     sectionShow: 'section-active',
+    playerShow: 'player-show',
   },
   startScreen: {
     activeAvatar: 'avatar-active',
@@ -42,6 +45,9 @@ export const settings = {
     consent: {
       errorAlertField: '.consent-alert',
     }
+  },
+  default: {
+    playerAvatar: 'player-default',
   }
 }
 
