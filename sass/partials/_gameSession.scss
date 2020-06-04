@@ -1,0 +1,86 @@
+/* Card grid */
+
+.card-wrapper {
+  position: absolute;
+    left: 50%;
+    bottom: 10%;
+    transform: translateX(-50%);
+    width: 900px;
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 20px;
+    padding: 0 50px;
+    margin: 20px 0;
+    .card {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $color-light;
+      color: $color-one;
+      text-align: center;
+      height: 200px;
+      border-radius: 10px;
+    }
+  }
+  .choice-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 20px;
+    padding: 0 50px;
+    margin-top: 50px;
+    .choice {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $color-one;
+      color: $color-light;
+      padding: 5px 0;
+      border-radius: 10px;
+    }
+  }
+}
+
+
+/* Balance Card */
+
+.balance-card {
+  position: fixed;
+  top: 30%;
+  right: 0%;
+  background-color: $color-one;
+  color: $color-light;
+  width: 300px;
+  margin-right: -240px;
+  padding: 10px 10px;
+  border-radius: 10px 0 0 10px;
+  transition: margin-right 2s;
+  cursor: pointer;
+  &:hover {
+    margin-right: 0px;
+  }
+  .balance-grid {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: auto;
+    grid-gap: 20px;
+    align-items: center;
+    .balance-history {
+      p {
+        margin-bottom: 5px;
+      }
+      .balance-history-list {
+        list-style: none;
+        li {
+          font-size: 12px;
+          a {
+            text-decoration: none;
+            color: $color-light;
+          }
+        }
+      }
+    }
+  }
+}

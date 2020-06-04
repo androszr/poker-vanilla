@@ -22,7 +22,6 @@ class GameInit {
     this.elements.consentError = document.querySelector(settings.validate.consent.errorAlertField);
   }
   renderAvatars() {
-    console.log('Game data: ', this.data);
     for (let avatar in this.data.avatars) {
       const generatedHTML = templates.avatarChoice(this.data.avatars[avatar]);
       const targetElement = document.querySelector(select.startScreen.avatarChoice);
@@ -102,7 +101,6 @@ class GameInit {
     this.gameSessionData = {};
     this.gameSessionData.name = this.elements.name.value;
     this.gameSessionData.avatar = this.currentActiveAvatarId;
-    console.log('validate passed', this.gameSessionData);
     new GameSession(this.gameSessionData);
   }
 }

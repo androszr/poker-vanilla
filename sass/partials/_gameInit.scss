@@ -1,0 +1,132 @@
+/* Start Game */
+
+#start {
+  text-align: center;
+  .wrapper {
+    padding-bottom: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    
+    .photo-header {
+      flex-basis: 100%;
+      margin-bottom: -50px;
+      height: 200px;
+      z-index: 2;
+      img {
+        height: 100%;
+      }
+    }
+    .content {
+      width: 800px;
+      background-color: $color-light;
+      color: $color-dark;
+      padding-top: 70px;
+      border-radius: 20px;
+    }
+  }
+}
+
+/* Form */
+
+form {
+  margin: 20px 0 0 0;
+  .input-group {
+    margin-bottom: 10px;
+    label {
+      small {
+        display: block;
+        margin-bottom: 10px;
+      }
+      .consent {
+        display: inline-block;
+        cursor: pointer;
+      }
+      input {
+        width: 350px;
+        line-height: 2rem;
+        border: 1px solid $color-gray;
+        border-radius: 5px;
+        text-align: center;
+        background-color: $color-one;
+        color: $color-light;
+        &:focus {
+          outline: none;
+        }
+      }
+      .terms-condition {
+        width: 30px;
+      }
+    }
+    .input-alert {
+      display: none;
+    }
+    .input-alert-show {
+      display: block;
+    }
+  }
+  button {
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: $color-light;
+    background-color: $color-one;
+    border: none;
+    border-radius: 5px;
+  }
+}
+
+/* Player Choice */
+
+.avatar-choice-headline {
+  font-size: smaller;
+}
+.avatar-choice {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  grid-gap: 15px;
+  padding: 10px 10px;
+  margin: 0px 100px;
+  .avatar {
+    border: 1px solid $color-gray;
+    border-radius: 10px 10px 5px 5px;
+    cursor: pointer;
+    &:hover .avatar-photo img {
+      filter: brightness(100%);
+    }
+    .avatar-photo {
+      img {
+        flex-grow: 1;
+        width: 100%;
+        overflow: hidden;
+        background-size: cover;
+        background-position: center;
+        border-radius: 10px 10px 0px 0px;
+        filter: brightness(70%);
+        transition: filter 1s;
+      }
+    }
+    .avatar-content {
+      font-size: 12px;
+      padding: 5px 5px;
+      .name {
+        padding-bottom: 5px;
+      }
+      .description {
+        font-size: 8px;
+      }
+    }
+  }
+  .avatar-active {
+    background-color: $color-one;
+    color: $color-light;
+    .avatar-photo {
+      img {
+        filter: brightness(100%);
+      }
+    }
+  }
+}

@@ -8,13 +8,16 @@ const app = {
     this.pages = document.querySelectorAll(select.global.allSections);
     this.startPage = document.querySelector(select.startScreen.startSection);
     const idFromHash = window.location.hash.replace('#/', '');
-    let ShowPage = this.startPage;
-    for (let page of this.pages) {
-      if (page.id==idFromHash) {
-        ShowPage = page;
-        break;
+    let ShowPage = this.startPage; 
+    if (idFromHash != 'game' && !this.data.name) {
+      for (let page of this.pages) {
+        if (page.id==idFromHash) {
+          ShowPage = page;
+          break;
+        }
       }
     }
+    
     ShowPage.classList.add(classNames.global.sectionShow);
     window.location.hash = '/' + ShowPage.id;
 
@@ -32,12 +35,12 @@ const app = {
     console.log('*** Poker App starting ***', this);
     this.initData();
     this.initPages();
-    /* temporary */ 
+    /* Temporary */
     this.gameSessionData = {};
     this.gameSessionData.name = 'Rob';
     this.gameSessionData.avatar = 'player-one';
-    console.log('validate passed', this.gameSessionData);
     new GameSession(this.gameSessionData);
+    
   }
 }
 app.init();
