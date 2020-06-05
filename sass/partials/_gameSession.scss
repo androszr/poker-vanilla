@@ -5,7 +5,6 @@
     left: 50%;
     bottom: 10%;
     transform: translateX(-50%);
-    width: 900px;
   .card-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -20,8 +19,19 @@
       background-color: $color-light;
       color: $color-one;
       text-align: center;
-      height: 200px;
+      height: 270px;
+      width: 200px;
+      margin-bottom: 50px;
       border-radius: 10px;
+      img {
+        height: 100%;
+      }
+    }
+    .card-choosen {
+      margin-top: 50px;
+      margin-bottom: 0px;
+      justify-content: bottom;
+      align-items: bottom;
     }
   }
   .choice-grid {
@@ -39,6 +49,11 @@
       color: $color-light;
       padding: 5px 0;
       border-radius: 10px;
+      cursor: pointer;
+    }
+    .choice-active {
+      background-color: $color-two;
+      color: $color-dark;
     }
   }
 }
@@ -83,4 +98,35 @@
       }
     }
   }
+}
+
+/* Play Card Game  */
+
+.play-cards {
+  position: fixed;
+  top: 60%;
+  right: 0%;
+  background-color: $color-one;
+  border-radius: 10px 0 0 10px;
+  text-align: center;
+  cursor: pointer;
+  p {
+    padding: 10px 15px;
+    display: none;
+  }
+  .play-tip {
+    font-size: 0.8rem;
+    padding-top: 0;
+    display: block;
+  }
+  .play-active {
+    display: block;
+  }
+}
+
+/* Clicked Card Option */ 
+
+.clicked-play-card {
+  background-color: $color-two;
+  color: $color-dark;
 }

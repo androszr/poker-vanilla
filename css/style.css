@@ -260,7 +260,6 @@ form button {
   left: 50%;
   bottom: 10%;
   transform: translateX(-50%);
-  width: 900px;
 }
 
 .card-wrapper .card-grid {
@@ -285,8 +284,23 @@ form button {
   background-color: #FFFFFF;
   color: #477148;
   text-align: center;
-  height: 200px;
+  height: 270px;
+  width: 200px;
+  margin-bottom: 50px;
   border-radius: 10px;
+}
+
+.card-wrapper .card-grid .card img {
+  height: 100%;
+}
+
+.card-wrapper .card-grid .card-choosen {
+  margin-top: 50px;
+  margin-bottom: 0px;
+  -ms-flex-pack: bottom;
+      justify-content: bottom;
+  -ms-flex-align: bottom;
+      align-items: bottom;
 }
 
 .card-wrapper .choice-grid {
@@ -312,6 +326,12 @@ form button {
   color: #FFFFFF;
   padding: 5px 0;
   border-radius: 10px;
+  cursor: pointer;
+}
+
+.card-wrapper .choice-grid .choice-active {
+  background-color: #ffc700;
+  color: #000000;
 }
 
 /* Balance Card */
@@ -360,6 +380,38 @@ form button {
 .balance-card .balance-grid .balance-history .balance-history-list li a {
   text-decoration: none;
   color: #FFFFFF;
+}
+
+/* Play Card Game  */
+.play-cards {
+  position: fixed;
+  top: 60%;
+  right: 0%;
+  background-color: #477148;
+  border-radius: 10px 0 0 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.play-cards p {
+  padding: 10px 15px;
+  display: none;
+}
+
+.play-cards .play-tip {
+  font-size: 0.8rem;
+  padding-top: 0;
+  display: block;
+}
+
+.play-cards .play-active {
+  display: block;
+}
+
+/* Clicked Card Option */
+.clicked-play-card {
+  background-color: #ffc700;
+  color: #000000;
 }
 
 /* Footer */
