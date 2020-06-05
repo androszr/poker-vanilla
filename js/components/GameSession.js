@@ -75,27 +75,18 @@ class GameSession {
     }
   }
   bet() {
-    if (this.gameState ==2) {
-      console.log('Game reset here');
-      for (let card of this.playerCards) {
-        card.setAttribute(settings.attributes.dataValue, '0');
-        card.setAttribute(settings.attributes.dataIndex, '-1');
-        card.innerHTML = settings.cardDefault;
-        card.classList.remove(classNames.gameScreen.choosenCard, false);
-      }
-      for (let choice of this.choiceOptions) {
-        const choiceText = choice.querySelector('p');
-        choiceText.classList.toggle(classNames.gameScreen.textHide);
-        choice.classList.remove(classNames.gameScreen.clickedChoiceCard, false);
-      }
-      this.gameState = 0;
-    } else {
-      if (this.gameState==0) {
-        this.cardsInBet = [...settings.allCards];
-        console.log('resetting cards');
-      }  
+    if (this.gameState ==3) {
+      this.resetBet();
+    } else if (this.gameState == 1) {
+      this.temporaryState();
+    }
+    else {
+    if (this.gameState==0) {
+      this.resetCards();
+    }   
+    if(this.gameState == 0 || this.gameState == 2) {
       /* remove choosen cards from allCards */ 
-        this.removeChoosenCardsFromBet();
+      this.removeChoosenCardsFromBet();
       console.log('currently in deck:', this.cardsInBet.length);
       for (let card of this.playerCards) {
         const cardDigit = this.getCardDigit(card);
@@ -103,17 +94,17 @@ class GameSession {
           const randomCard = this.cardsInBet[Math.floor(Math.random() * this.cardsInBet.length)];
           const cardIndex = this.cardsInBet.indexOf(randomCard); 
           if (cardIndex > -1) { 
-            this.cardsInBet.splice(cardIndex, 1);
+            this.cardsInBet.splice(cardIndex, 2);
           }
           card.setAttribute(settings.attributes.dataValue, randomCard);
           card.setAttribute(settings.attributes.dataIndex, cardIndex);
           card.innerHTML = settings.cardElement.replace(/\*/g, randomCard).replace('%', cardDigit);
         }
-        if (this.gameState == 1) {
+        if (this.gameState == 2) {
           card.classList.add(classNames.gameScreen.choosenCard);
         }
       }
-      if (this.gameState == 1) {
+      if (this.gameState == 2) {
         for (let choice of this.choiceOptions) {
           choice.classList.remove(classNames.gameScreen.clickedChoiceCard, false);
           const choiceText = choice.querySelector('p');
@@ -121,9 +112,9 @@ class GameSession {
         }
       }
       this.gameState++
+    }
+  } 
       
-      console.log(this.gameState);
-    }  
   }
   getCardDigit(card) {
     const choiceDigit = card.getAttribute(settings.attributes.dataCard); 
@@ -138,6 +129,35 @@ class GameSession {
         }
       }
     }
+  }
+  resetBet() {
+    for (let card of this.playerCards) {
+      card.setAttribute(settings.attributes.dataValue, '0');
+      card.setAttribute(settings.attributes.dataIndex, '-1');
+      card.innerHTML = settings.cardDefault;
+      card.classList.remove(classNames.gameScreen.choosenCard, false);
+    }
+    for (let choice of this.choiceOptions) {
+      const choiceText = choice.querySelector('p');
+      choiceText.classList.toggle(classNames.gameScreen.textHide);
+      choice.classList.remove(classNames.gameScreen.clickedChoiceCard, false);
+    }
+    this.gameState = 0;
+  }
+  resetCards() {
+    this.cardsInBet = [...settings.allCards];
+  }
+  temporaryState() {
+    for (let card of this.playerCards) {
+      if (!card.classList.contains(classNames.gameScreen.choosenCard)) {
+        card.innerHTML = settings.cardDefault;
+      }
+    }
+    setTimeout(() => { 
+      this.gameState++;
+      this.bet();
+    }, 1000);
+    
   }
 }
 
