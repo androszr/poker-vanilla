@@ -39,6 +39,7 @@ export const classNames = {
     clickedPlayCard: 'clicked-play-card',
     clickedChoiceCard: 'choice-active',
     choosenCard: 'card-choosen',
+    textHide: 'text-hide',
   },
 }
 
@@ -58,7 +59,13 @@ export const settings = {
   default: {
     playerAvatar: 'player-default',
   },
-  cardElement: '<img src="images/cards/*.png" alt="*" class="card-image card-%">',
+  attributes: {
+    dataCard: 'data-card',
+    dataValue: 'data-value',
+    dataIndex: 'data-index',
+  },
+  cardElement: '<img src="images/cards/*.png" alt="*" class="card-image">',
+  cardDefault: '<img src="images/cards/card-back.png" alt="card-back" class="card-image">',
   cardOptions: [
     'Digit1', 'Digit2', 'Digit3', 'Digit4', 'Digit5'
   ],

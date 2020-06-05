@@ -6,7 +6,7 @@ class GameSession {
     this.getElements();
     this.initSession();
     this.initActions();
-    this.gameStart = false;
+    this.gameState = 0;
   }
   getElements() {
     this.startSection = document.querySelector(select.startScreen.startSection);
@@ -46,15 +46,13 @@ class GameSession {
     });
     for (let option of this.choiceOptions) {
       option.addEventListener('click', () => {
-        const classList = event.target.className.split(' ');
-        const choiceDigit = classList[1].replace('choice-', '')
+        const choiceDigit = event.target.getAttribute(settings.attributes.dataCard); 
         this.chooseCard(choiceDigit);
       });
     }
     for (let card of this.playerCards) {
       card.addEventListener('click', () => {
-        const classList = event.target.className.split(' ');
-        const choiceDigit = classList[1].replace('card-', '');
+        const choiceDigit = card.getAttribute(settings.attributes.dataCard); 
         this.chooseCard(choiceDigit);
       });
     }
@@ -69,45 +67,74 @@ class GameSession {
     }
   }
   chooseCard(digit) {
-    if (this.gameStart) {
-      const choiceOption = document.querySelector(select.gameScreen.choiceCard.replace('*', digit));
-      const choosenCard = document.querySelector(select.gameScreen.card.replace('*', digit));
+    if (this.gameState== 1) {
+      const choosenCard = document.querySelector('.card-grid [data-card="'+ digit +'"]');
+      const choiceOption = document.querySelector('.choice-grid [data-card="'+ digit +'"]');
       choiceOption.classList.toggle(classNames.gameScreen.clickedChoiceCard);
       choosenCard.classList.toggle(classNames.gameScreen.choosenCard);
     }
   }
   bet() {
-    this.gameStart = true;
-    this.cardsInBet = [...settings.allCards];
-    /* remove choosen cards from allCards */ 
-    console.log('cards before removing choosen: ', this.cardsInBet);
-    this.removeChoosenCardsFromBet();
-    console.log('cards after removing choosen: ', this.cardsInBet);
-    for (let card of this.playerCards) {
-      const cardDigit = this.getCardDigit(card);
-      if (!card.classList.contains(classNames.gameScreen.choosenCard)) {
-        const randomCard = this.cardsInBet[Math.floor(Math.random() * this.cardsInBet.length)];
-        const cardIndex = this.cardsInBet.indexOf(randomCard); 
-        if (cardIndex > -1) { 
-          this.cardsInBet.splice(cardIndex, 1);
-        }
-        card.setAttribute('data-value', randomCard);
-        card.innerHTML = settings.cardElement.replace(/\*/g, randomCard).replace('%', cardDigit);
+    if (this.gameState ==2) {
+      console.log('Game reset here');
+      for (let card of this.playerCards) {
+        card.setAttribute(settings.attributes.dataValue, '0');
+        card.setAttribute(settings.attributes.dataIndex, '-1');
+        card.innerHTML = settings.cardDefault;
+        card.classList.remove(classNames.gameScreen.choosenCard, false);
       }
-    }
+      for (let choice of this.choiceOptions) {
+        const choiceText = choice.querySelector('p');
+        choiceText.classList.toggle(classNames.gameScreen.textHide);
+        choice.classList.remove(classNames.gameScreen.clickedChoiceCard, false);
+      }
+      this.gameState = 0;
+    } else {
+      if (this.gameState==0) {
+        this.cardsInBet = [...settings.allCards];
+        console.log('resetting cards');
+      }  
+      /* remove choosen cards from allCards */ 
+        this.removeChoosenCardsFromBet();
+      console.log('currently in deck:', this.cardsInBet.length);
+      for (let card of this.playerCards) {
+        const cardDigit = this.getCardDigit(card);
+        if (!card.classList.contains(classNames.gameScreen.choosenCard)) {
+          const randomCard = this.cardsInBet[Math.floor(Math.random() * this.cardsInBet.length)];
+          const cardIndex = this.cardsInBet.indexOf(randomCard); 
+          if (cardIndex > -1) { 
+            this.cardsInBet.splice(cardIndex, 1);
+          }
+          card.setAttribute(settings.attributes.dataValue, randomCard);
+          card.setAttribute(settings.attributes.dataIndex, cardIndex);
+          card.innerHTML = settings.cardElement.replace(/\*/g, randomCard).replace('%', cardDigit);
+        }
+        if (this.gameState == 1) {
+          card.classList.add(classNames.gameScreen.choosenCard);
+        }
+      }
+      if (this.gameState == 1) {
+        for (let choice of this.choiceOptions) {
+          choice.classList.remove(classNames.gameScreen.clickedChoiceCard, false);
+          const choiceText = choice.querySelector('p');
+          choiceText.classList.toggle(classNames.gameScreen.textHide);
+        }
+      }
+      this.gameState++
+      
+      console.log(this.gameState);
+    }  
   }
   getCardDigit(card) {
-    const classList = card.className.split(' ');
-    const choiceDigit = classList[1].replace('card-', '');
+    const choiceDigit = card.getAttribute(settings.attributes.dataCard); 
     return choiceDigit;
   }
   removeChoosenCardsFromBet() {
     for (let card of this.playerCards) {
       if (card.classList.contains(classNames.gameScreen.choosenCard)) {
-        console.log('this card is chosen: ', card);
-        const cardIndex = this.cardsInBet.indexOf(card.getAttribute('data-value')); 
+        const cardIndex = card.getAttribute(settings.attributes.dataIndex); 
         if (cardIndex > -1) { 
-          this.cardsInBet.splice(cardIndex, 1);
+          this.cardsInBet.slice(cardIndex, 1);
         }
       }
     }

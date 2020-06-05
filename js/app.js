@@ -39,6 +39,8 @@ const app = {
     this.gameSessionData = {};
     this.gameSessionData.name = 'Rob';
     this.gameSessionData.avatar = 'player-one';
+    /* Game Balance */ 
+    this.gameSessionData.balance = 500;
     new GameSession(this.gameSessionData);
     
   }

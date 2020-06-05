@@ -101,6 +101,8 @@ class GameInit {
     this.gameSessionData = {};
     this.gameSessionData.name = this.elements.name.value;
     this.gameSessionData.avatar = this.currentActiveAvatarId;
+    /* Game Balance for now set to 500 as default */ 
+    this.gameSessionData.balance = 500;
     new GameSession(this.gameSessionData);
   }
 }
