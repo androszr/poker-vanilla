@@ -156,7 +156,7 @@ class GameSession {
     this.gameState++;
     setTimeout(() => { 
       this.bet();
-    }, 1000);
+    }, 500);
     
   }
 }
