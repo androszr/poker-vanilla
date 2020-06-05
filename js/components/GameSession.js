@@ -153,8 +153,8 @@ class GameSession {
         card.innerHTML = settings.cardDefault;
       }
     }
+    this.gameState++;
     setTimeout(() => { 
-      this.gameState++;
       this.bet();
     }, 1000);
     
