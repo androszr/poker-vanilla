@@ -41,14 +41,16 @@
               <p class="avatar-choice-headline">Choose your avatar</p>
               <div class="avatar-choice">
                 <script id="template-avatar-choice" type="text/x-handlebars-template">
-                  <div class="avatar {{ id }}">
-                    <div class="avatar-photo">
-                      <img src="images/{{ image }}">
-                    </div>
-                    <div class="avatar-content">
-                      <p class="name"><i class="fad fa-{{ icon }}"></i> {{ name }}</p>
-                    </div>
-                  </div>
+                  <label class="avatar {{ id }}" id="{{ id }}">
+                    <input type="radio" name="avatar-radio" value="{{ id }}">
+                      <div class="avatar-photo">
+                        <img src="images/{{ image }}">
+                      </div>
+                      <div class="avatar-content">
+                        <p class="name"><i class="fad fa-{{ icon }}"></i> {{ name }}</p>
+                      </div>
+                  </label>
+                  
                 </script>
               </div>
               <small class="input-alert avatar-alert">Please choose avatar</small>
@@ -68,19 +70,19 @@
     <section id="game">
       <div class="card-wrapper">
         <div class="card-grid">
-          <div class="card card-1" data-card="1" data-value="" data-index="">
+          <div class="card card-1" data-card="1" data-value="">
             <img src="images/cards/card-back.png" alt="card-back" class="card-image card-1">
           </div>
-          <div class="card card-2"  data-card="2" data-value="" data-index="">
+          <div class="card card-2"  data-card="2" data-value="">
             <img src="images/cards/card-back.png" alt="card-back" class="card-image card-2">
           </div>
-          <div class="card card-3"  data-card="3" data-value="" data-index="">
+          <div class="card card-3"  data-card="3" data-value="">
             <img src="images/cards/card-back.png" alt="card-back" class="card-image card-3">
           </div>
-          <div class="card card-4"  data-card="4" data-value="" data-index="">
+          <div class="card card-4"  data-card="4" data-value="">
             <img src="images/cards/card-back.png" alt="card-back" class="card-image card-4">
           </div>
-          <div class="card card-5"  data-card="5" data-value="" data-index="">
+          <div class="card card-5"  data-card="5" data-value="">
             <img src="images/cards/card-back.png" alt="card-back" class="card-image card-5">
           </div>
         </div>

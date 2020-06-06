@@ -35,11 +35,11 @@ const app = {
     console.log('*** Poker App starting ***', this);
     this.initData();
     this.initPages();
-    /* Temporary */
+    /* Temporary  */
     this.gameSessionData = {};
     this.gameSessionData.name = 'Rob';
     this.gameSessionData.avatar = 'player-one';
-    /* Game Balance */ 
+    // Game Balance 
     this.gameSessionData.balance = 500;
     new GameSession(this.gameSessionData);
     
