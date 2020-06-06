@@ -90,10 +90,10 @@ class GameSession {
     if (this.gameStateClass && this.gameStateClass.gameReset) {
       this.gameState = 0;
     }
-    console.log('Game State before doing the move: ', this.gameState);
+    //console.log('Game State before doing the move: ', this.gameState);
     this.gameStateClass = new ChangeGameState(this.gameState, this.currentCardsInBet);
     this.gameState++;
-    console.log('Game State after doing the move: ', this.gameState, 'of class: ', this.gameStateClass);
+    //console.log('Game State after doing the move: ', this.gameState, 'of class: ', this.gameStateClass);
   }
 }
 

@@ -216,6 +216,10 @@ form button {
   cursor: pointer;
 }
 
+.avatar-choice .avatar input {
+  display: none;
+}
+
 .avatar-choice .avatar:hover .avatar-photo img {
   filter: brightness(100%);
 }

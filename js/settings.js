@@ -8,6 +8,7 @@ export const select = {
     startSection: '#start',
     inputName: '.player-name-input',
     consentField: '.terms-condition',
+    form: '.start-game-form',
     submitButton: '.start-game-form [type="submit"]',
     avatarChoice: '.avatar-choice',
     avatarAvatar: '.avatar-details',

@@ -16,22 +16,24 @@ class ChangeGameState {
   changeState() {
     switch(this.gameState) {
       case 0: /* Starting game - reset cards in deck, draw first set of cards */ 
-        console.log('case in ChangeGameState Class: ', this.gameState);
+        //console.log('case in ChangeGameState Class: ', this.gameState);
+        this.choiceColorRemove();
         this.cardsInDeck = [];
         this.cardsInDeck = [...settings.allCards];
         //console.log('cards before draw: ', this.cardsInDeck, 'player cards: ', this.playerCards);
-        this.delayTime = 80;
+        this.delayTime = 50;
         for (let card of this.playerCards) {
+          card.classList.remove(classNames.gameScreen.choosenCard, false);
           setTimeout(() => { 
           this.drawCard(card);
           }, this.delayTime);
-          this.delayTime = this.delayTime + 80;
+          this.delayTime = this.delayTime + 50;
         }
         this.choiceTextToggle();
         //console.log('cards after draw: ', this.cardsInDeck);
         return;
       case 1:
-        console.log('case in ChangeGameState Class: ', this.gameState, 'in deck: ', this.cardsInDeck);
+        //console.log('case in ChangeGameState Class: ', this.gameState, 'in deck: ', this.cardsInDeck);
         for (let card of this.playerCards) {
           if (!card.classList.contains(classNames.gameScreen.choosenCard)) {
             card.innerHTML = settings.cardDefault;
@@ -39,13 +41,13 @@ class ChangeGameState {
         }
         this.choiceTextToggle();
         setTimeout(() => { 
-          this.delayTime = 80;
+          this.delayTime = 50;
           for (let card of this.playerCards) {
             if (!card.classList.contains(classNames.gameScreen.choosenCard)) {
               setTimeout(() => { 
               this.drawCard(card);
             }, this.delayTime);
-            this.delayTime = this.delayTime + 80;
+            this.delayTime = this.delayTime + 50;
             }
           }
           setTimeout(() => { 
@@ -55,6 +57,7 @@ class ChangeGameState {
             this.choiceColorAdd();
           }, 500);
         }, 500);
+        console.log('result calculation goes here');
         return;
       case 2:
         this.gameReset = true;
@@ -64,7 +67,7 @@ class ChangeGameState {
           card.classList.remove(classNames.gameScreen.choosenCard, false);
         }
         this.choiceColorRemove();
-        console.log('case in ChangeGameState Class: ', this.gameState);
+        //console.log('case in ChangeGameState Class: ', this.gameState);
         return;
     }
   }

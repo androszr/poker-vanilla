@@ -41,14 +41,16 @@
               <p class="avatar-choice-headline">Choose your avatar</p>
               <div class="avatar-choice">
                 <script id="template-avatar-choice" type="text/x-handlebars-template">
-                  <div class="avatar {{ id }}">
-                    <div class="avatar-photo">
-                      <img src="images/{{ image }}">
-                    </div>
-                    <div class="avatar-content">
-                      <p class="name"><i class="fad fa-{{ icon }}"></i> {{ name }}</p>
-                    </div>
-                  </div>
+                  <label class="avatar {{ id }}" id="{{ id }}">
+                    <input type="radio" name="avatar-radio" value="{{ id }}">
+                      <div class="avatar-photo">
+                        <img src="images/{{ image }}">
+                      </div>
+                      <div class="avatar-content">
+                        <p class="name"><i class="fad fa-{{ icon }}"></i> {{ name }}</p>
+                      </div>
+                  </label>
+                  
                 </script>
               </div>
               <small class="input-alert avatar-alert">Please choose avatar</small>
