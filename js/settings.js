@@ -17,6 +17,7 @@ export const select = {
   },
   gameScreen: {
     cardGrid: '.card-grid',
+    cardSingle: '.card',
     gameSection: '#game',
     playWrapper: '.play-cards',
     choiceCard: '.choice-*',

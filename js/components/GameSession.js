@@ -1,4 +1,5 @@
 import {select, classNames, settings} from '../settings.js';
+import ChangeGameState from '../components/ChangeGameState.js';
 
 class GameSession {
   constructor(gameSessionData) {
@@ -63,7 +64,8 @@ class GameSession {
       setTimeout(() => { 
         this.playWrapper.classList.toggle(classNames.gameScreen.clickedPlayCard);
       }, 200);
-      this.bet();
+      this.gameMove();
+      //this.bet();
     }
   }
   chooseCard(digit) {
@@ -74,6 +76,14 @@ class GameSession {
       choosenCard.classList.toggle(classNames.gameScreen.choosenCard);
     }
   }
+
+  gameMove() {
+    console.log('Game State before doing the move: ', this.gameState);
+    this.gameStateClass = new ChangeGameState(this.gameState);
+    this.gameState = this.gameStateClass.gameState;
+    console.log('Game State after doing the move: ', this.gameState, 'of class: ', this.gameStateClass);
+  }
+
   bet() {
     if (this.gameState ==3) {
       this.resetBet();
