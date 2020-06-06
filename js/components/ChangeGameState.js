@@ -52,7 +52,7 @@ class ChangeGameState {
             for (let card of this.playerCards) {
               card.classList.add(classNames.gameScreen.choosenCard);
             }
-            this.choiceColorToggle();
+            this.choiceColorAdd();
           }, 500);
         }, 500);
         return;
@@ -63,6 +63,7 @@ class ChangeGameState {
           card.innerHTML = settings.cardDefault;
           card.classList.remove(classNames.gameScreen.choosenCard, false);
         }
+        this.choiceColorRemove();
         console.log('case in ChangeGameState Class: ', this.gameState);
         return;
     }
@@ -85,9 +86,14 @@ class ChangeGameState {
       choiceText.classList.toggle(classNames.gameScreen.textShow);
     }
   }
-  choiceColorToggle() {
+  choiceColorAdd() {
     for (let choice of this.choiceOptions) {
       choice.classList.add(classNames.gameScreen.clickedChoiceCard);
+    }
+  }
+  choiceColorRemove() {
+    for (let choice of this.choiceOptions) {
+      choice.classList.remove(classNames.gameScreen.clickedChoiceCard, false);
     }
   }
 }
