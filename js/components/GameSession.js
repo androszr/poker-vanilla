@@ -78,9 +78,12 @@ class GameSession {
   }
 
   gameMove() {
+    if (this.gameStateClass) {
+      this.currentCardsInBet = this.gameStateClass.cardsInDeck;
+    }
     console.log('Game State before doing the move: ', this.gameState);
-    this.gameStateClass = new ChangeGameState(this.gameState);
-    this.gameState = this.gameStateClass.gameState;
+    this.gameStateClass = new ChangeGameState(this.gameState, this.currentCardsInBet);
+    this.gameState++;
     console.log('Game State after doing the move: ', this.gameState, 'of class: ', this.gameStateClass);
   }
 
@@ -118,7 +121,7 @@ class GameSession {
         for (let choice of this.choiceOptions) {
           choice.classList.remove(classNames.gameScreen.clickedChoiceCard, false);
           const choiceText = choice.querySelector('p');
-          choiceText.classList.toggle(classNames.gameScreen.textHide);
+          choiceText.classList.toggle(classNames.gameScreen.textShow);
         }
       }
       this.gameState++

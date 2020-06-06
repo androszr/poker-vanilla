@@ -330,8 +330,12 @@ form button {
   cursor: pointer;
 }
 
-.card-wrapper .choice-grid .choice .text-hide {
+.card-wrapper .choice-grid .choice p {
   display: none;
+}
+
+.card-wrapper .choice-grid .choice .text-show {
+  display: block;
 }
 
 .card-wrapper .choice-grid .choice-active {

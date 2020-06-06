@@ -40,7 +40,7 @@ export const classNames = {
     clickedPlayCard: 'clicked-play-card',
     clickedChoiceCard: 'choice-active',
     choosenCard: 'card-choosen',
-    textHide: 'text-hide',
+    textShow: 'text-show',
   },
 }
 
