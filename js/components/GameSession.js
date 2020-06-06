@@ -81,6 +81,9 @@ class GameSession {
     if (this.gameStateClass) {
       this.currentCardsInBet = this.gameStateClass.cardsInDeck;
     }
+    if (this.gameStateClass && this.gameStateClass.gameReset) {
+      this.gameState = 0;
+    }
     console.log('Game State before doing the move: ', this.gameState);
     this.gameStateClass = new ChangeGameState(this.gameState, this.currentCardsInBet);
     this.gameState++;

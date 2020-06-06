@@ -20,8 +20,12 @@ class ChangeGameState {
         this.cardsInDeck = [];
         this.cardsInDeck = [...settings.allCards];
         //console.log('cards before draw: ', this.cardsInDeck, 'player cards: ', this.playerCards);
+        this.delayTime = 80;
         for (let card of this.playerCards) {
+          setTimeout(() => { 
           this.drawCard(card);
+          }, this.delayTime);
+          this.delayTime = this.delayTime + 80;
         }
         this.choiceTextToggle();
         //console.log('cards after draw: ', this.cardsInDeck);
@@ -35,9 +39,13 @@ class ChangeGameState {
         }
         this.choiceTextToggle();
         setTimeout(() => { 
+          this.delayTime = 80;
           for (let card of this.playerCards) {
             if (!card.classList.contains(classNames.gameScreen.choosenCard)) {
+              setTimeout(() => { 
               this.drawCard(card);
+            }, this.delayTime);
+            this.delayTime = this.delayTime + 80;
             }
           }
           setTimeout(() => { 
@@ -47,12 +55,14 @@ class ChangeGameState {
             this.choiceColorToggle();
           }, 500);
         }, 500);
-        
         return;
       case 2:
-        console.log('case in ChangeGameState Class: ', this.gameState);
-        return;
-      case 3:
+        this.gameReset = true;
+        for (let card of this.playerCards) {
+          card.setAttribute(settings.attributes.dataValue, '0');
+          card.innerHTML = settings.cardDefault;
+          card.classList.remove(classNames.gameScreen.choosenCard, false);
+        }
         console.log('case in ChangeGameState Class: ', this.gameState);
         return;
     }
