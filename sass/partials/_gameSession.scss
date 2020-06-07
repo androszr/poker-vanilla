@@ -1,4 +1,7 @@
-/* Card grid */
+/* Points grid */
+
+
+/* Cards, Choice & Points grid */
 
 .card-wrapper {
   position: absolute;
@@ -33,6 +36,36 @@
       justify-content: bottom;
       align-items: bottom;
     }
+  }
+  .points-grid {
+    font-size: 10px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 5px;
+    margin: 0 100px;
+    padding-bottom: 20px;
+    .combination {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto;
+      .name {
+        text-align: left;
+        padding: 5px 0 5px 10px;
+        border-bottom: 1px solid $color-one;
+      }
+      .points {
+        padding: 5px 0;
+        border-bottom: 1px solid $color-one;
+      }
+    }
+    .combination-won {
+      background-color: $color-one;
+      color: $color-light;
+      font-weight: bold;
+    }
+    
   }
   .choice-grid {
     display: grid;

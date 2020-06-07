@@ -258,7 +258,8 @@ form button {
   filter: brightness(100%);
 }
 
-/* Card grid */
+/* Points grid */
+/* Cards, Choice & Points grid */
 .card-wrapper {
   position: absolute;
   left: 50%;
@@ -305,6 +306,46 @@ form button {
       justify-content: bottom;
   -ms-flex-align: bottom;
       align-items: bottom;
+}
+
+.card-wrapper .points-grid {
+  font-size: 10px;
+  text-align: center;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  grid-gap: 5px;
+  margin: 0 100px;
+  padding-bottom: 20px;
+}
+
+.card-wrapper .points-grid .combination {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+}
+
+.card-wrapper .points-grid .combination .name {
+  text-align: left;
+  padding: 5px 0 5px 10px;
+  border-bottom: 1px solid #477148;
+}
+
+.card-wrapper .points-grid .combination .points {
+  padding: 5px 0;
+  border-bottom: 1px solid #477148;
+}
+
+.card-wrapper .points-grid .combination-won {
+  background-color: #477148;
+  color: #FFFFFF;
+  font-weight: bold;
 }
 
 .card-wrapper .choice-grid {

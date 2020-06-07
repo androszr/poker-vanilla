@@ -1,4 +1,5 @@
 import {settings, select, classNames} from '../settings.js';
+import CalculateResult from './CalculateResult.js';
 
 class ChangeGameState {
   constructor(gameState, cardsInDeck) {
@@ -55,9 +56,9 @@ class ChangeGameState {
               card.classList.add(classNames.gameScreen.choosenCard);
             }
             this.choiceColorAdd();
+            new CalculateResult(this.playerCards, 2); 
           }, 500);
-        }, 500);
-        console.log('result calculation goes here');
+        }, 500);     
         return;
       case 2:
         this.gameReset = true;
