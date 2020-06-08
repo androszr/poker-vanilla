@@ -121,6 +121,7 @@ export const settings = {
     straight: 20,
     flush: 30,
     straightFlush: 250,
+    royalFlush: 4000,
   },
 }
 

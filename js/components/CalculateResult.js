@@ -22,6 +22,7 @@ class CalculateResult {
     this.dom.straight = document.querySelector(select.pointsGrid.straight);
     this.dom.flush = document.querySelector(select.pointsGrid.flush);
     this.dom.straightFlush = document.querySelector(select.pointsGrid.straightFlush);
+    this.dom.royalFlush = document.querySelector(select.pointsGrid.royalFlush);
     this.pointsGridCombinations = document.querySelector(select.pointsGrid.pointsGrid).children;
     this.currentBalance = document.querySelector(select.gameScreen.currentBalance);
   }
@@ -40,6 +41,7 @@ class CalculateResult {
     this.checkFlush(); // 30 points
     this.checkStraightFlush(); // 250 points
     this.checkTypesCombinations();
+    this.checkRoyalFlush(); // 4000 points
     console.log('your final point score is:', settings.pointsCombinations[this.winCombination], 'for:', this.winCombination);
     for (let pointsGrid of this.pointsGridCombinations) {
       pointsGrid.classList.remove(classNames.gameScreen.wonCombination, false);
@@ -69,6 +71,12 @@ class CalculateResult {
       this.winCombination = 'straightFlush'; 
     }
   }
+  checkRoyalFlush() {
+    const royal = this.isRoyalConsecutive(this.cardsType);
+    if (royal == true && this.colorMatch == true) {
+      this.winCombination = 'royalFlush';
+    }
+  }
   checkTypesCombinations() {
     for (let combination in this.winTypeCombinations) {
       for (let type of this.winTypeCombinations[combination]) {
@@ -87,6 +95,11 @@ class CalculateResult {
     const straightOne = 'ABCDEFGHIJKLM';
     const straightTwo = 'MABCD';
     return (straightOne.includes(string) || straightTwo.includes(string));
+  }
+  isRoyalConsecutive(string) {
+    console.log(string);
+    const royal = 'IJKLM';
+    return (royal.includes(string));
   }
 }
 
