@@ -26,15 +26,16 @@ export const select = {
     card: '.card-*',
   },
   pointsGrid: {
-    pair: '',
-    twoPairs: '',
-    threes: '',
-    fours: '',
-    fullHouse: '',
-    straight: '',
-    flush: '',
-    straightFlush: '',
-    royalFlush: '',
+    pointsGrid: '.points-grid',
+    pair: '.jacks-better',
+    twoPairs: '.two-pairs',
+    threes: '.three-kind',
+    fours: '.four-kind',
+    fullHouse: '.full-house',
+    straight: '.straight',
+    flush: '.flush',
+    straightFlush: '.straight-flush',
+    royalFlush: '.royal-flush',
   },
 };
 
@@ -52,6 +53,7 @@ export const classNames = {
     clickedChoiceCard: 'choice-active',
     choosenCard: 'card-choosen',
     textShow: 'text-show',
+    wonCombination: 'combination-won',
   },
 }
 
@@ -112,6 +114,14 @@ export const settings = {
       straightFlush: [],
       royalFlush: [],
     }   
+  },
+  pointsCombinations: {
+    none: 0,
+    pair: 5,
+    twoPairs: 10,
+    threes: 15,
+    fours: 125,
+    fullHouse: 45,
   },
 }
 
