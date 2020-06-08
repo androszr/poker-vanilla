@@ -12,12 +12,15 @@ class ChangeGameState {
   getElements() {
     this.playerCards = document.querySelectorAll(select.gameScreen.cardSingle);
     this.choiceOptions = document.querySelectorAll(select.gameScreen.choiceAll);
+    this.currentBalance = document.querySelector(select.gameScreen.currentBalance);
   }
 
   changeState() {
     switch(this.gameState) {
       case 0: /* Starting game - reset cards in deck, draw first set of cards */ 
         //console.log('case in ChangeGameState Class: ', this.gameState);
+        this.currentBalanceValue = parseInt(this.currentBalance.innerHTML);
+        this.currentBalance.innerHTML = this.currentBalanceValue - 5;
         this.choiceColorRemove();
         this.cardsInDeck = [];
         this.cardsInDeck = [...settings.allCards];

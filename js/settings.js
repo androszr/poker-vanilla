@@ -24,6 +24,7 @@ export const select = {
     choiceCard: '.choice-*',
     choiceAll: '.choice',
     card: '.card-*',
+    currentBalance: '.balance-current span'
   },
   pointsGrid: {
     pointsGrid: '.points-grid',

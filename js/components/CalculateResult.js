@@ -20,6 +20,7 @@ class CalculateResult {
     this.dom.fours = document.querySelector(select.pointsGrid.fours);
     this.dom.fullHouse = document.querySelector(select.pointsGrid.fullHouse);
     this.pointsGridCombinations = document.querySelector(select.pointsGrid.pointsGrid).children;
+    this.currentBalance = document.querySelector(select.gameScreen.currentBalance);
   }
   getCardsValue() {
     for (let card of this.playercards) {
@@ -51,7 +52,10 @@ class CalculateResult {
     }
     if (this.winCombination != 'none') {
       this.dom[this.winCombination].classList.add(classNames.gameScreen.wonCombination);
+      this.currentBalanceValue = parseInt(this.currentBalance.innerHTML);
+      this.currentBalance.innerHTML = this.currentBalanceValue + settings.pointsCombinations[this.winCombination];
     }
+    
   }
   isConsecutive(string) {
     const straightOne = 'ABCDEFGHIJKLM';
