@@ -24,8 +24,18 @@ export const select = {
     choiceCard: '.choice-*',
     choiceAll: '.choice',
     card: '.card-*',
-  }
-  
+  },
+  pointsGrid: {
+    pair: '',
+    twoPairs: '',
+    threes: '',
+    fours: '',
+    fullHouse: '',
+    straight: '',
+    flush: '',
+    straightFlush: '',
+    royalFlush: '',
+  },
 };
 
 export const classNames = {
@@ -87,11 +97,21 @@ export const settings = {
     'M-a', 'M-b', 'M-c', 'M-d', // A
   ],
   winCombinations: {
-    pair: [/([J-M])\1/],
-    twoPairs: [/^(?=.{5}$).*(?:([A-M])\1.*([A-M])\2|([A-M])\3.*([A-M])\4)/],
-    threes: [/([A-M])\1\1/],
-    fours: [/([A-M])\1\1\1/],
-    fullHouse: [/^(?=.{5}$)*(?:([A-M])\1\1)(?:([A-M])\2)|(?:([A-M])\3)(?:([A-M])\4\4)/],
+    typeCombinations: {
+      pair: [/([J-M])\1/],
+      twoPairs: [/^(?=.{5}$).*(?:([A-M])\1.*([A-M])\2|([A-M])\3.*([A-M])\4)/],
+      threes: [/([A-M])\1\1/],
+      fours: [/([A-M])\1\1\1/],
+      fullHouse: [/^(?=.{5}$)*(?:([A-M])\1\1)(?:([A-M])\2)|(?:([A-M])\3)(?:([A-M])\4\4)/],
+      straight: [],
+    },
+    colorCombinations: {
+      flush: [],
+    },
+    typeColorCombinations: {
+      straightFlush: [],
+      royalFlush: [],
+    }   
   },
 }
 

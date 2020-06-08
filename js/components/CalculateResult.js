@@ -7,7 +7,7 @@ class CalculateResult {
     this.cardsValue = [];
     this.cardsType = '';
     this.cardsColor = '';
-    this.winCombinations = settings.winCombinations;
+    this.winTypeCombinations = settings.winCombinations.typeCombinations;
     this.getElements();
     this.getCardsValue();
   }
@@ -26,18 +26,17 @@ class CalculateResult {
     }
     console.log('cards type: ', this.cardsType, 'cards colors: ', this.cardsColor);
 
-    for (let winCombinationType in this.winCombinations) {
-      for (let type of this.winCombinations[winCombinationType]) {
+    for (let combination in this.winTypeCombinations) {
+      for (let type of this.winTypeCombinations[combination]) {
         const regex = new RegExp(type);
         if (regex.test(this.cardsType)) {
-          console.log('you got: ', winCombinationType);
+          console.log('you got: ', combination);
           const matchPart = regex.exec(this.cardsType); 
-          console.log('you won something: ', regex, winCombinationType, 'matching: ', matchPart[0]);
+          console.log('you won something: ', regex, combination, 'matching: ', matchPart[0]);
         }
       }
-    }
-    
-}
+    }  
+  }
 }
 
 export default CalculateResult;
