@@ -106,15 +106,10 @@ export const settings = {
       threes: [/([A-M])\1\1/],
       fours: [/([A-M])\1\1\1/],
       fullHouse: [/^(?=.{5}$)*(?:([A-M])\1\1)(?:([A-M])\2)|(?:([A-M])\3)(?:([A-M])\4\4)/],
-      straight: [],
     },
     colorCombinations: {
-      flush: [],
+      flush: /([a-e])\1\1\1\1/,
     },
-    typeColorCombinations: {
-      straightFlush: [],
-      royalFlush: [],
-    }   
   },
   pointsCombinations: {
     none: 0,
@@ -123,6 +118,9 @@ export const settings = {
     threes: 15,
     fours: 125,
     fullHouse: 45,
+    straight: 20,
+    flush: 30,
+    straightFlush: 250,
   },
 }
 

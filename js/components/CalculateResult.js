@@ -19,6 +19,9 @@ class CalculateResult {
     this.dom.threes = document.querySelector(select.pointsGrid.threes);
     this.dom.fours = document.querySelector(select.pointsGrid.fours);
     this.dom.fullHouse = document.querySelector(select.pointsGrid.fullHouse);
+    this.dom.straight = document.querySelector(select.pointsGrid.straight);
+    this.dom.flush = document.querySelector(select.pointsGrid.flush);
+    this.dom.straightFlush = document.querySelector(select.pointsGrid.straightFlush);
     this.pointsGridCombinations = document.querySelector(select.pointsGrid.pointsGrid).children;
     this.currentBalance = document.querySelector(select.gameScreen.currentBalance);
   }
@@ -33,7 +36,40 @@ class CalculateResult {
       this.cardsColor = this.cardsColor.concat(value.charAt(2));
     }
     console.log('cards type:', this.cardsType, 'cards colors:', this.cardsColor, 'cards value:', this.cardsValue);
-
+    this.checkStraight(); // 20 points
+    this.checkFlush(); // 30 points
+    this.checkStraightFlush(); // 250 points
+    this.checkTypesCombinations();
+    console.log('your final point score is:', settings.pointsCombinations[this.winCombination], 'for:', this.winCombination);
+    for (let pointsGrid of this.pointsGridCombinations) {
+      pointsGrid.classList.remove(classNames.gameScreen.wonCombination, false);
+    }
+    if (this.winCombination != 'none') {
+      this.dom[this.winCombination].classList.add(classNames.gameScreen.wonCombination);
+      this.currentBalanceValue = parseInt(this.currentBalance.innerHTML);
+      this.currentBalance.innerHTML = this.currentBalanceValue + settings.pointsCombinations[this.winCombination];
+    }   
+  }
+  checkFlush() {
+    const regex = new RegExp(settings.winCombinations.colorCombinations.flush);
+    if (regex.test(this.cardsColor)) {
+      this.winCombination = 'flush';
+      this.colorMatch = true;
+    }
+  }
+  checkStraight() {
+    const straight = this.isConsecutive(this.cardsType);
+    if (straight == true) {
+      this.winCombination = 'straight';
+      this.straightMatch = true
+    }
+  }
+  checkStraightFlush() {
+    if (this.colorMatch && this.straightMatch) {
+      this.winCombination = 'straightFlush'; 
+    }
+  }
+  checkTypesCombinations() {
     for (let combination in this.winTypeCombinations) {
       for (let type of this.winTypeCombinations[combination]) {
         const regex = new RegExp(type);
@@ -46,16 +82,6 @@ class CalculateResult {
         }
       }
     }  
-    console.log('your final point score is:', settings.pointsCombinations[this.winCombination], 'for:', this.winCombination);
-    for (let pointsGrid of this.pointsGridCombinations) {
-      pointsGrid.classList.remove(classNames.gameScreen.wonCombination, false);
-    }
-    if (this.winCombination != 'none') {
-      this.dom[this.winCombination].classList.add(classNames.gameScreen.wonCombination);
-      this.currentBalanceValue = parseInt(this.currentBalance.innerHTML);
-      this.currentBalance.innerHTML = this.currentBalanceValue + settings.pointsCombinations[this.winCombination];
-    }
-    
   }
   isConsecutive(string) {
     const straightOne = 'ABCDEFGHIJKLM';
