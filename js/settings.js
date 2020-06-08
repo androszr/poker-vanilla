@@ -85,7 +85,12 @@ export const settings = {
     'Q-a', 'Q-b', 'Q-c', 'Q-d',
     'K-a', 'K-b', 'K-c', 'K-d',
     'A-a', 'A-b', 'A-c', 'A-d',
-  ]
+  ],
+  winCombinations: {
+    pair: [/([JQKA])\1/],
+    twoPairs: [/^(?=.{5}$).*(?:([2-9TJQKA])\1.*([2-9TJQKA])\2|([2-9TJQKA])\3.*([JQKA])\4)/],
+    threes: [/([2-9TJQKA])\1\1/],
+  },
 }
 
 export const templates = {
