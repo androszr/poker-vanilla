@@ -59,6 +59,10 @@ export const classNames = {
 }
 
 export const settings = {
+  keys: {
+    space: 'Space',
+    enter: 'Enter',
+  },
   validate: {
     name: {
       regex: /^[a-zA-Z0-9]{2,}$/,

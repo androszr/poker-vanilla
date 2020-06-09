@@ -9,223 +9,219 @@
       <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-      <nav class="navigation">
-        <div class="logo logo-text">
-            <a href="#"><i class="fad fa-spade"></i> Androll Poker</a>
+      <div class="body-wrapper">
+        <div class="rotate-phone">
         </div>
-        <div class="right-navbar">
-            <ul>
-                <li>Leaderboard</li>
-                <li class="player-name">Player</li>
-                <li class="player-details"><img src="/images/player-default.jpg" alt="player-image" class="player-avatar"></li>
-            </ul>
+        <nav class="navigation">
+          <div class="logo logo-text">
+              <a href="#"><i class="fad fa-spade"></i> Androll Poker</a>
           </div>
-      </nav>
-    <section id="start">
-      <div class="wrapper">
-        <div class="photo-header">
-          <img src="images/header.png" alt="header-image">
-        </div>
-        <div class="content">
-          <h1>Begin your video poker adventure</h1>
-          <p>start your game now.</p>
-          <form class="start-game-form">
-            <div class="input-group">
-              <label>
-                <small>Your name</small>
-                <input type="text" name="player-name" class="player-name-input">
-                <small class="input-alert name-alert">Please use only letters or numbers. Minimum length 2.</small>
-              </label>
+          <div class="right-navbar">
+              <ul>
+                  <li class="cash-out">Cash Out</li>
+                  <li class="leaderboard">Leaderboard</li>
+                  <li class="player-name">Player</li>
+                  <li class="player-details"><img src="/images/player-default.jpg" alt="player-image" class="player-avatar"></li>
+              </ul>
             </div>
-            <div class="input-group">
-              <p class="avatar-choice-headline">Choose your avatar</p>
-              <div class="avatar-choice">
-                <script id="template-avatar-choice" type="text/x-handlebars-template">
-                  <label class="avatar {{ id }}" id="{{ id }}">
-                    <input type="radio" name="avatar-radio" value="{{ id }}">
-                      <div class="avatar-photo">
-                        <img src="images/{{ image }}">
-                      </div>
-                      <div class="avatar-content">
-                        <p class="name"><i class="fad fa-{{ icon }}"></i> {{ name }}</p>
-                      </div>
+        </nav>
+        <section id="start">
+          <div class="wrapper">
+            <div class="photo-header">
+              <img src="images/header.png" alt="header-image">
+            </div>
+            <div class="content">
+              <h1>Begin your video poker adventure</h1>
+              <p>start your game now.</p>
+              <form class="start-game-form">
+                <div class="input-group">
+                  <label>
+                    <small>Your name</small>
+                    <input type="text" name="player-name" class="player-name-input">
+                    <small class="input-alert name-alert">Please use only letters or numbers. Minimum length 2.</small>
                   </label>
-                  
-                </script>
+                </div>
+                <div class="input-group">
+                  <p class="avatar-choice-headline">Choose your avatar</p>
+                  <div class="avatar-choice">
+                    <script id="template-avatar-choice" type="text/x-handlebars-template">
+                      <label class="avatar {{ id }}" id="{{ id }}">
+                        <input type="radio" name="avatar-radio" value="{{ id }}">
+                          <div class="avatar-photo">
+                            <img src="images/{{ image }}">
+                          </div>
+                          <div class="avatar-content">
+                            <p class="name"><i class="fad fa-{{ icon }}"></i> {{ name }}</p>
+                          </div>
+                      </label>
+                      
+                    </script>
+                  </div>
+                  <small class="input-alert avatar-alert">Please choose avatar</small>
+                </div>
+                <div class="input-group">
+                  <label>
+                    <input type="checkbox" name="terms-condition" class="terms-condition" value="1">
+                    <small class="consent">I agree with terms &amp; conditions</small>
+                    <small class="input-alert consent-alert">Please agree with terms &amp; conditions</small>
+                  </label>
+                </div>
+                <button type="submit">Start game</button>
+              </form>
+            </div>
+          </div>
+        </section>
+        <section id="game">
+          <div class="card-wrapper">
+            <div class="points-grid">
+              <div class="combination royal-flush">
+                <div class="name">
+                  <p>Royal Flush</p>
+                </div>
+                <div class="points">
+                  <p>4000</p>
+                </div>
               </div>
-              <small class="input-alert avatar-alert">Please choose avatar</small>
+              <div class="combination straight-flush">
+                <div class="name">
+                  <p>Straight Flush</p>
+                </div>
+                <div class="points">
+                  <p>250</p>
+                </div>
+              </div>
+              <div class="combination four-kind">
+                <div class="name">
+                  <p>Four of a kind</p>
+                </div>
+                <div class="points">
+                  <p>125</p>
+                </div>
+              </div>
+              <div class="combination full-house">
+                <div class="name">
+                  <p>Full House</p>
+                </div>
+                <div class="points">
+                  <p>45</p>
+                </div>
+              </div>
+              <div class="combination flush">
+                <div class="name">
+                  <p>Flush</p>
+                </div>
+                <div class="points">
+                  <p>30</p>
+                </div>
+              </div>
+              <div class="combination straight">
+                <div class="name">
+                  <p>Straight</p>
+                </div>
+                <div class="points">
+                  <p>20</p>
+                </div>
+              </div>
+              <div class="combination three-kind">
+                <div class="name">
+                  <p>Three of a kind</p>
+                </div>
+                <div class="points">
+                  <p>15</p>
+                </div>
+              </div>
+              <div class="combination two-pairs">
+                <div class="name">
+                  <p>Two pairs</p>
+                </div>
+                <div class="points">
+                  <p>10</p>
+                </div>
+              </div>
+              <div class="combination jacks-better">
+                <div class="name">
+                  <p>Jacks or better</p>
+                </div>
+                <div class="points">
+                  <p>5</p>
+                </div>
+              </div>
+              <div class="combination player-bet">
+                <div class="name">
+                  <p>Your bet</p>
+                </div>
+                <div class="points">
+                  <p>5</p>
+                </div>
+              </div>
             </div>
-            <div class="input-group">
-              <label>
-                <input type="checkbox" name="terms-condition" class="terms-condition" value="1">
-                <small class="consent">I agree with terms &amp; conditions</small>
-                <small class="input-alert consent-alert">Please agree with terms &amp; conditions</small>
-              </label>
+    
+            <div class="card-grid">
+              <div class="card card-1" data-card="1" data-value="">
+                <img src="images/cards/card-back.png" alt="card-back" class="card-image card-1">
+              </div>
+              <div class="card card-2"  data-card="2" data-value="">
+                <img src="images/cards/card-back.png" alt="card-back" class="card-image card-2">
+              </div>
+              <div class="card card-3"  data-card="3" data-value="">
+                <img src="images/cards/card-back.png" alt="card-back" class="card-image card-3">
+              </div>
+              <div class="card card-4"  data-card="4" data-value="">
+                <img src="images/cards/card-back.png" alt="card-back" class="card-image card-4">
+              </div>
+              <div class="card card-5"  data-card="5" data-value="">
+                <img src="images/cards/card-back.png" alt="card-back" class="card-image card-5">
+              </div>
             </div>
-            <button type="submit">Start game</button>
-          </form>
-        </div>
+            <div class="interface-grid">
+              <div class="choice-grid">
+                <div class="choice choice-1" data-card="1">
+                  <p>Keep (1)</p>
+                </div>
+                <div class="choice choice-2" data-card="2">
+                  <p>Keep (2)</p>
+                </div>
+                <div class="choice choice-3" data-card="3">
+                  <p>Keep (3)</p>
+                </div>
+                <div class="choice choice-4" data-card="4">
+                  <p>Keep (4)</p>
+                </div>
+                <div class="choice choice-5" data-card="5">
+                  <p>Keep (5)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="balance-card">
+            <div class="balance-grid">
+              <div class="balance-current">
+                <p>$<span></span></p>
+            </div>
+            </div>  
+          </div>
+          <div class="play-cards">
+            <p class="bet play-active">Bet</p>
+            <p class="play-tip">(space)</p>
+          </div>
+        </section>
+        <section id="leaderboard">
+          <div class="wrapper">
+            <p>Current leaderboard: </p>
+          </div>
+        </section>
+        <footer>
+          <div class="copyright">
+              <p>&copy; 2020 Androll Poker</p>
+          </div>
+          <div class="social-icons">
+              <i class="fab fa-facebook-f"></i>
+              <i class="fab fa-instagram"></i>
+              <i class="fab fa-youtube"></i>
+              <i class="fab fa-snapchat-ghost"></i>
+          </div>
+        </footer>
       </div>
-    </section>
-    <section id="game">
-      <div class="card-wrapper">
-        <div class="points-grid">
-          <div class="combination royal-flush">
-            <div class="name">
-              <p>Royal Flush</p>
-            </div>
-            <div class="points">
-              <p>4000</p>
-            </div>
-          </div>
-          <div class="combination straight-flush">
-            <div class="name">
-              <p>Straight Flush</p>
-            </div>
-            <div class="points">
-              <p>250</p>
-            </div>
-          </div>
-          <div class="combination four-kind">
-            <div class="name">
-              <p>Four of a kind</p>
-            </div>
-            <div class="points">
-              <p>125</p>
-            </div>
-          </div>
-          <div class="combination full-house">
-            <div class="name">
-              <p>Full House</p>
-            </div>
-            <div class="points">
-              <p>45</p>
-            </div>
-          </div>
-          <div class="combination flush">
-            <div class="name">
-              <p>Flush</p>
-            </div>
-            <div class="points">
-              <p>30</p>
-            </div>
-          </div>
-          <div class="combination straight">
-            <div class="name">
-              <p>Straight</p>
-            </div>
-            <div class="points">
-              <p>20</p>
-            </div>
-          </div>
-          <div class="combination three-kind">
-            <div class="name">
-              <p>Three of a kind</p>
-            </div>
-            <div class="points">
-              <p>15</p>
-            </div>
-          </div>
-          <div class="combination two-pairs">
-            <div class="name">
-              <p>Two pairs</p>
-            </div>
-            <div class="points">
-              <p>10</p>
-            </div>
-          </div>
-          <div class="combination jacks-better">
-            <div class="name">
-              <p>Jacks or better</p>
-            </div>
-            <div class="points">
-              <p>5</p>
-            </div>
-          </div>
-          <div class="combination player-bet">
-            <div class="name">
-              <p>Your bet on every round</p>
-            </div>
-            <div class="points">
-              <p>5</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-grid">
-          <div class="card card-1" data-card="1" data-value="">
-            <img src="images/cards/card-back.png" alt="card-back" class="card-image card-1">
-          </div>
-          <div class="card card-2"  data-card="2" data-value="">
-            <img src="images/cards/card-back.png" alt="card-back" class="card-image card-2">
-          </div>
-          <div class="card card-3"  data-card="3" data-value="">
-            <img src="images/cards/card-back.png" alt="card-back" class="card-image card-3">
-          </div>
-          <div class="card card-4"  data-card="4" data-value="">
-            <img src="images/cards/card-back.png" alt="card-back" class="card-image card-4">
-          </div>
-          <div class="card card-5"  data-card="5" data-value="">
-            <img src="images/cards/card-back.png" alt="card-back" class="card-image card-5">
-          </div>
-        </div>
-        <div class="interface-grid">
-          <div class="choice-grid">
-            <div class="choice choice-1" data-card="1">
-              <p>Keep (1)</p>
-            </div>
-            <div class="choice choice-2" data-card="2">
-              <p>Keep (2)</p>
-            </div>
-            <div class="choice choice-3" data-card="3">
-              <p>Keep (3)</p>
-            </div>
-            <div class="choice choice-4" data-card="4">
-              <p>Keep (4)</p>
-            </div>
-            <div class="choice choice-5" data-card="5">
-              <p>Keep (5)</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="balance-card">
-        <div class="balance-grid">
-          <div class="balance-current">
-            <p>$<span>500</span></p>
-          </div>
-          <div class="balance-history">
-            <p>Last changes:</p>
-            <ul class="balance-history-list">
-              <li>-$100 (bid)</li>
-              <li>+$200 (win)</li>
-              <li><a href="">(expand)</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="play-cards">
-        <p class="bet play-active">Bet</p>
-        <p class="deal">Deal</p>
-        <p class="play-tip">(space)</p>
-      </div>
-    </section>
-    <section id="leaderboard">
-      <div class="wrapper">
-        <p>Current leaderboard: </p>
-      </div>
-    </section>
-    <footer>
-      <div class="copyright">
-          <p>&copy; 2020 Androll Poker</p>
-      </div>
-      <div class="social-icons">
-          <i class="fab fa-facebook-f"></i>
-          <i class="fab fa-instagram"></i>
-          <i class="fab fa-youtube"></i>
-          <i class="fab fa-snapchat-ghost"></i>
-      </div>
-    </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
     <script src="js/app.js" type="module"></script>
     </body>

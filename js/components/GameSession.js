@@ -18,6 +18,7 @@ class GameSession {
     this.playWrapper = document.querySelector(select.gameScreen.playWrapper);
     this.playerCards = document.querySelector(select.gameScreen.cardGrid).children;
     this.choiceOptions = document.querySelectorAll(select.gameScreen.choiceAll);
+    this.currentBalance = document.querySelector(select.gameScreen.currentBalance);
   }
 
   initSession() {
@@ -25,6 +26,7 @@ class GameSession {
     window.location.hash = '/' + this.gameSection.id;
     this.startSection.classList.remove(classNames.global.sectionShow, false);
     this.gameSection.classList.add(classNames.global.sectionShow);
+    this.currentBalance.innerHTML = parseInt(this.data.balance);
     this.setPlayer();
   }
 
@@ -38,14 +40,15 @@ class GameSession {
   initActions() {
     this.playWrapper.addEventListener('click', () => {
       event.preventDefault();
-      this.playWrapperClicked('Space');
+      this.playWrapperClicked(settings.keys.space);
     });
     document.addEventListener('keydown', (e) => {
       const cardOptions = settings.cardOptions;
       if (cardOptions.includes(e.code)) {
         const choiceDigit = e.code.charAt(e.code.length - 1);
         this.chooseCard(choiceDigit);
-      } else if (e.code=='Space' || e.code=='Enter') {
+      } else if (e.code==settings.keys.space || e.code==settings.keys.enter) {
+        event.preventDefault();
         this.playWrapperClicked(e.code);
       }
     });
@@ -64,7 +67,7 @@ class GameSession {
   }
 
   playWrapperClicked(code) {
-    if (code=='Enter' || code=='Space') {
+    if (code==settings.keys.enter || code==settings.keys.space) {
       this.playWrapper.classList.toggle(classNames.gameScreen.clickedPlayCard);
       setTimeout(() => { 
         this.playWrapper.classList.toggle(classNames.gameScreen.clickedPlayCard);

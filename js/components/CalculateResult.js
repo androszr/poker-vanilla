@@ -39,9 +39,11 @@ class CalculateResult {
     console.log('cards type:', this.cardsType, 'cards colors:', this.cardsColor, 'cards value:', this.cardsValue);
     this.checkStraight(); // 20 points
     this.checkFlush(); // 30 points
-    this.checkStraightFlush(); // 250 points
+    if (this.colorMatch == true && this.straightMatch == true) {
+      this.checkStraightFlush(); // 250 points
+      this.checkRoyalFlush(); // 4000 points
+    }
     this.checkTypesCombinations();
-    this.checkRoyalFlush(); // 4000 points
     console.log('your final point score is:', settings.pointsCombinations[this.winCombination], 'for:', this.winCombination);
     for (let pointsGrid of this.pointsGridCombinations) {
       pointsGrid.classList.remove(classNames.gameScreen.wonCombination, false);
@@ -63,7 +65,7 @@ class CalculateResult {
     const straight = this.isConsecutive(this.cardsType);
     if (straight == true) {
       this.winCombination = 'straight';
-      this.straightMatch = true
+      this.straightMatch = true;
     }
   }
   checkStraightFlush() {
@@ -97,7 +99,6 @@ class CalculateResult {
     return (straightOne.includes(string) || straightTwo.includes(string));
   }
   isRoyalConsecutive(string) {
-    console.log(string);
     const royal = 'IJKLM';
     return (royal.includes(string));
   }

@@ -133,3 +133,17 @@ form {
     }
   }
 }
+
+@media all and (max-width: $break-980px) { 
+  #start .wrapper  {
+    .content {
+      width: 90vw;
+    }
+    .photo-header {
+      height: 100px;
+    }
+    .photo-header img {
+      height: 100%;
+    }
+  }
+}

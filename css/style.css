@@ -1,5 +1,6 @@
 /* Colors */
 /* Fonts */
+/* Break Points */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -41,6 +42,23 @@ body::before {
   background-size: 16px 16px;
   filter: brightness(40%);
   z-index: -1;
+}
+
+body .body-wrapper {
+  min-height: 800px;
+  position: relative;
+}
+
+body .body-wrapper .rotate-phone {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: url("../../images/rotate.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 10;
+  display: none;
 }
 
 /* Header */
@@ -88,6 +106,14 @@ body::before {
   height: 50px;
 }
 
+.navigation ul .cash-out {
+  display: none;
+}
+
+.navigation ul .leaderboard {
+  display: none;
+}
+
 .navigation ul .player-details {
   display: none;
 }
@@ -98,6 +124,38 @@ body::before {
 
 .navigation ul .player-show {
   display: inline-block;
+}
+
+@media all and (max-width: 980px) {
+  .navigation .logo-text a {
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+  }
+}
+
+@media all and (max-width: 650px) {
+  body .body-wrapper .rotate-phone {
+    display: block;
+  }
+  .section-active {
+    display: none;
+  }
+}
+
+@media (max-height: 800px) {
+  body .body-wrapper {
+    min-height: 100vh;
+  }
+}
+
+@media (max-height: 475px) {
+  .navigation {
+    padding: 10px 20px;
+  }
+  .navigation .logo-text a {
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+  }
 }
 
 /* Start Game */
@@ -258,6 +316,18 @@ form button {
   filter: brightness(100%);
 }
 
+@media all and (max-width: 980px) {
+  #start .wrapper .content {
+    width: 90vw;
+  }
+  #start .wrapper .photo-header {
+    height: 100px;
+  }
+  #start .wrapper .photo-header img {
+    height: 100%;
+  }
+}
+
 /* Points grid */
 /* Cards, Choice & Points grid */
 .card-wrapper {
@@ -286,17 +356,16 @@ form button {
       justify-content: center;
   -ms-flex-align: center;
       align-items: center;
-  background-color: #FFFFFF;
   color: #477148;
   text-align: center;
   height: 270px;
   width: 200px;
   margin-bottom: 50px;
-  border-radius: 10px;
 }
 
 .card-wrapper .card-grid .card img {
   height: 100%;
+  border-radius: 10px;
 }
 
 .card-wrapper .card-grid .card-choosen {
@@ -395,25 +464,19 @@ form button {
   right: 0%;
   background-color: #477148;
   color: #FFFFFF;
-  width: 320px;
-  margin-right: -240px;
+  width: 70px;
   padding: 10px 10px;
   border-radius: 10px 0 0 10px;
   transition: margin-right 2s;
-  cursor: pointer;
-}
-
-.balance-card:hover {
-  margin-right: 0px;
 }
 
 .balance-card .balance-grid {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 30% 70%;
-      grid-template-columns: 30% 70%;
-  -ms-grid-rows: auto;
-      grid-template-rows: auto;
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
+  -ms-grid-rows: 70px;
+      grid-template-rows: 70px;
   grid-gap: 20px;
   -ms-flex-align: center;
       align-items: center;
@@ -441,6 +504,7 @@ form button {
   position: fixed;
   top: 60%;
   right: 0%;
+  width: 70px;
   background-color: #477148;
   border-radius: 10px 0 0 10px;
   text-align: center;
@@ -468,6 +532,74 @@ form button {
   color: #000000;
 }
 
+@media all and (max-width: 1280px) {
+  .card-wrapper .points-grid {
+    row-gap: 0px;
+  }
+  .card-wrapper .card-grid .card {
+    height: 180px;
+    width: 130px;
+  }
+}
+
+@media all and (max-width: 980px) {
+  .card-wrapper .card-grid {
+    margin: 10px 0;
+  }
+  .card-wrapper .card-grid .card {
+    height: 130px;
+    width: 90px;
+    margin-bottom: 25px;
+  }
+  .card-wrapper .card-grid .card-choosen {
+    margin-top: 25px;
+    margin-bottom: 0px;
+  }
+  .card-wrapper .choice-grid {
+    margin-top: 20px;
+  }
+  .card-wrapper .choice-grid .choice .text-show {
+    font-size: 12px;
+  }
+  .card-wrapper .points-grid {
+    font-size: 9px;
+  }
+  .balance-card .balance-grid {
+    -ms-grid-rows: 40px;
+        grid-template-rows: 40px;
+  }
+}
+
+@media (max-height: 475px) {
+  .card-wrapper {
+    bottom: 15%;
+  }
+  .card-wrapper .points-grid .combination {
+    display: none;
+  }
+  .card-wrapper .points-grid .combination-won {
+    display: -ms-grid;
+    display: grid;
+  }
+}
+
+@media (max-height: 475px) {
+  .balance-card {
+    width: 50px;
+    font-size: 12px;
+  }
+  .play-cards {
+    width: 50px;
+    font-size: 12px;
+  }
+  .play-cards .play-tip {
+    font-size: 8px;
+  }
+  .card-wrapper .points-grid {
+    padding-bottom: 5px;
+  }
+}
+
 /* Footer */
 footer {
   position: absolute;
@@ -491,5 +623,11 @@ footer .social-icons {
 footer .social-icons i {
   padding-left: 30px;
   cursor: pointer;
+}
+
+@media all and (max-width: 980px) {
+  footer {
+    padding: 10px 10px;
+  }
 }
 /*# sourceMappingURL=style.css.map */

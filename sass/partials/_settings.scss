@@ -12,3 +12,24 @@ $color-gray-background: #F7F7F7;
 
 $font-one: 'Raleway', sans-serif;
 $font-two: 'Montserrat', sans-serif;
+
+/* Break Points */
+
+$break-1280px: '1280px';
+$break-980px: '980px';
+$break-736px: '736px';
+$break-480px: '480px';
+$break-650px: '650px';
+
+@media all and (max-width: $break-1280px) { 
+
+}
+@media all and (max-width: $break-980px) { 
+
+}
+@media all and (max-width: $break-736px) { 
+
+}
+@media all and (max-width: $break-650px) { 
+
+}
