@@ -23,7 +23,7 @@ const app = {
   },
   initData: function(){
     this.data = {};
-    fetch('../db/data.json')
+    fetch('db/data.json')
       .then(response => response.json())
       .then(data => {
         this.data = data;
