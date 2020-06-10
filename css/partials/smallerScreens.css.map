@@ -1,9 +1,0 @@
-{
-	"version": 3,
-	"file": "smallerScreens.css",
-	"sources": [
-		"../../sass/partials/smallerScreens.scss"
-	],
-	"names": [],
-	"mappings": ""
-}
