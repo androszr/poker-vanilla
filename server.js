@@ -1,6 +1,6 @@
 const jsonServer = require('json-server'); // eslint-disable-line no-undef
 const server = jsonServer.create();
-const router = jsonServer.router('dist/db/app.json');
+const router = jsonServer.router('dist/db/data.json');
 const middlewares = jsonServer.defaults({
   static: 'dist',
   noCors: true
