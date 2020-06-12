@@ -5,6 +5,7 @@ class GameInit {
   constructor(gameData) {
     this.data = gameData;
     this.currentActiveAvatar = '';
+    this.preloadCards();
     this.renderAvatars();
     this.getElements();
     this.initActions();
@@ -24,6 +25,15 @@ class GameInit {
     this.elements.avatarError = document.querySelector(settings.validate.avatars.errorAlertField);
     this.elements.consentError = document.querySelector(settings.validate.consent.errorAlertField);
   }
+
+  preloadCards() {
+    for (let card in settings.allCards) {
+      const generatedHTML = templates.cardsPreload(settings.allCards[card]);
+      const targetElement = document.querySelector(select.gameScreen.cardPreload);
+      targetElement.insertAdjacentHTML('beforeend', generatedHTML);
+    }
+  }
+
 
   renderAvatars() {
     for (let avatar in this.data) {

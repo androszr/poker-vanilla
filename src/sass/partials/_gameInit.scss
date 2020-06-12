@@ -134,6 +134,16 @@ form {
   }
 }
 
+/* Card Preload */
+
+.preloader {
+  display: none;
+  img {
+    width: 1px;
+    height: 1px;
+  }
+}
+
 @media all and (max-width: $break-980px) { 
   #start .wrapper  {
     .content {

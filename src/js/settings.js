@@ -24,7 +24,8 @@ export const select = {
     choiceCard: '.choice-*',
     choiceAll: '.choice',
     card: '.card-*',
-    currentBalance: '.balance-current span'
+    currentBalance: '.balance-current span',
+    cardPreload: '.preloader',
   },
   pointsGrid: {
     pointsGrid: '.points-grid',
@@ -135,4 +136,5 @@ export const settings = {
 
 export const templates = {
   avatarChoice: Handlebars.compile(document.querySelector('#template-avatar-choice').innerHTML),
+  cardsPreload: Handlebars.compile(document.querySelector('#template-image-preloader').innerHTML),
 }
