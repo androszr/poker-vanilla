@@ -82,6 +82,7 @@ export const settings = {
     dataCard: 'data-card',
     dataValue: 'data-value',
     dataIndex: 'data-index',
+    dataIndexTwo: 'data-index',
   },
   cardElement: '<img src="images/cards/*.png" alt="*" class="card-image">',
   cardDefault: '<img src="images/cards/card-back.png" alt="card-back" class="card-image">',
