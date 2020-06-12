@@ -1,6 +1,6 @@
 
 import GameInit from './components/GameInit.js';
-import { classNames, select } from './settings.js';
+import { classNames, select, settings } from './settings.js';
 
 const app = {
   initPages: function() {
@@ -23,7 +23,8 @@ const app = {
   },
   initData: function(){
     this.data = {};
-    fetch('db/data.json')
+    const url = settings.db.url + '/avatars';
+    fetch(url)
       .then(response => response.json())
       .then(data => {
         this.data = data;

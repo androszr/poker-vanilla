@@ -26,11 +26,11 @@ class GameInit {
   }
 
   renderAvatars() {
-    for (let avatar in this.data.avatars) {
-      const generatedHTML = templates.avatarChoice(this.data.avatars[avatar]);
+    for (let avatar in this.data) {
+      const generatedHTML = templates.avatarChoice(this.data[avatar]);
       const targetElement = document.querySelector(select.startScreen.avatarChoice);
       targetElement.insertAdjacentHTML('beforeend', generatedHTML);
-      const avatarBoxInput = document.querySelector('.'+this.data.avatars[avatar].id+' input')
+      const avatarBoxInput = document.querySelector('.'+this.data[avatar].id+' input')
       avatarBoxInput.addEventListener('change', () => {
         this.avatarChoice();
       });

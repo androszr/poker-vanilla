@@ -104,6 +104,9 @@ export const settings = {
     'L-a', 'L-b', 'L-c', 'L-d', // K
     'M-a', 'M-b', 'M-c', 'M-d', // A
   ],
+  db: {
+    url: '//' + window.location.hostname + (window.location.hostname=='localhost' ? ':3131' : ''),
+  },
   winCombinations: {
     typeCombinations: {
       pair: [/([J-M])\1/],
