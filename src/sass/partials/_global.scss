@@ -19,10 +19,6 @@ section {
   display: block;
 }
 
-html {
-  background-color: $color-dark;
-}
-
 /* Body */
 
 body {
@@ -30,6 +26,7 @@ body {
   font-family: $font-two;
   font-size: 16px;
   color: $color-light;
+  width: 100%;
   min-height: 100vh;
   &::before {
     position: absolute;
